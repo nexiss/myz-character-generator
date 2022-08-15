@@ -1,9 +1,18 @@
-import { ThemeProvider } from 'react-bootstrap';
-import { Trans } from 'react-i18next';
+import { Row, ThemeProvider } from 'react-bootstrap';
+import { Trans, useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import './App.css';
+import { RootState } from './store/store';
 import CharacterGenerator from './templates/character-generator/character-generator';
 
 function App() {
+  const root = useSelector<{ root: RootState }, RootState>(
+    (state) => state.root
+  );
+
+  // TODO: check why translations not working without invoking this line
+  useTranslation();
+
   return (
     <ThemeProvider
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
@@ -19,6 +28,8 @@ function App() {
         </header>
         <div className="container">
           <CharacterGenerator />
+          {/* TODO: Remove this Row */}
+          <Row>{JSON.stringify(root)}</Row>
         </div>
       </div>
     </ThemeProvider>

@@ -5,10 +5,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './store/store';
 import './i18n';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    root: rootReducer,
+  },
 });
 
 const root = ReactDOM.createRoot(
