@@ -8,7 +8,11 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'es',
+    initImmediate: true,
+    // FIXME: Remove lng and detect lang from browser
+    lng: 'es',
+    load: 'currentOnly',
+    fallbackLng: 'en',
     debug: true,
     detection: {
       order: ['queryString', 'cookie'],

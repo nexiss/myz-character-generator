@@ -1,5 +1,5 @@
 import { Row, ThemeProvider } from 'react-bootstrap';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import './App.css';
 import { RootState } from './store/store';
@@ -9,9 +9,6 @@ function App() {
   const root = useSelector<{ root: RootState }, RootState>(
     (state) => state.root
   );
-
-  // TODO: check why translations not working without invoking this line
-  useTranslation();
 
   return (
     <ThemeProvider
