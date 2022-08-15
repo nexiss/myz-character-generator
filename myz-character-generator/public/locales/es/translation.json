@@ -1,0 +1,33 @@
+{
+    "title": "Esto es Mutant Year Zero - Character Generator",
+    "role-selector": {
+        "hint": "Puede escoger un rol específico o se escogerá aleatoriamente"
+    },
+    "others": {
+        "name": "Nombre",
+        "role": "Rol",
+        "generate": "Generar",
+        "characters": "Personajes"
+    },
+    "roles": {
+        "random": "Aleatorio",
+        "0": "Matón",
+        "1": "Mecánico",
+        "2": "Stalker",
+        "3": "Arreglador",
+        "4": "Adiestrador de perros",
+        "5": "Chronicler",
+        "6": "Boss",
+        "7": "Slave"
+    },
+    "mutations": {
+        "0": "Mutación 0",
+        "1": "Mutación 1"
+    },
+    "attributes": {
+        "strength": "Fuerza",
+        "agility": "Destreza",
+        "wits": "Intelecto",
+        "empathy": "Empatía"
+    }
+}
