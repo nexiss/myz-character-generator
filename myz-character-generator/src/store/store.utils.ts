@@ -2,19 +2,18 @@ import { Role, MutationId } from '../models';
 import { ROLE_OPTION_VALUE, RANDOM } from './data';
 import { Current } from './store';
 
+// TODO: Filter is needed because Object.values is returning also keys
+const filterNumbers = (n: any) => typeof n === 'number';
+
 export const getRandomRole = (): Role => {
-  const enumValues = Object.values(Role) as Role[];
+  const enumValues = Object.values(Role).filter(filterNumbers) as Role[];
   const index = Math.floor(Math.random() * enumValues.length);
 
   return enumValues[index];
 };
 
 export const getMutations = (): MutationId[] => {
-  return (
-    Object.values(MutationId)
-      // TODO: Filter is needed because Object.values is returning also keys
-      .filter((v) => typeof v === 'number') as MutationId[]
-  );
+  return Object.values(MutationId).filter(filterNumbers) as MutationId[];
 };
 
 export const buildInitialMutations = (): Record<MutationId, boolean> => {
