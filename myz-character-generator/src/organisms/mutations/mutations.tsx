@@ -9,10 +9,10 @@ export const Mutations = () => {
   return (
     <div>
       <AddMutationComponent
-        onAddMutation={(mutationId) =>
+        onAddMutation={(mutation) =>
           dispatch(
             addMutation({
-              id: mutationId,
+              mutation,
             })
           )
         }

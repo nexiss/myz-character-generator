@@ -5,7 +5,7 @@ class CharactersList extends Component {
   render(): ReactNode {
     return (
       <div className="text-center">
-        <Trans i18nKey="others.characters"></Trans>
+        <Trans i18nKey="others.characters">Characters</Trans>
       </div>
     );
   }

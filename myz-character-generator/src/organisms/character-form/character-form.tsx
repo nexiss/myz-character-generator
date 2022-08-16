@@ -1,6 +1,7 @@
 import { Col, Form, Row } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
+import RoleTrans from '../../atoms/trans/role-trans';
 import ActionsBar from '../../molecules/actions-bar/actions-bar';
 import { ROLE_OPTION_VALUE } from '../../store/data';
 import {
@@ -57,7 +58,7 @@ export const CharacterForm = () => {
               {/* TODO: sort options alphabetically */}
               {roles.map((role, i) => (
                 <option key={i} value={role}>
-                  <Trans i18nKey={'roles.' + role}>{String(role)}</Trans>
+                  <RoleTrans role={role}></RoleTrans>
                 </option>
               ))}
             </Form.Select>

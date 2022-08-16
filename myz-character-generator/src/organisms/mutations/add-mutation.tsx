@@ -1,18 +1,18 @@
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { MutationId } from '../../models';
+import { Mutation } from '../../models';
 import { Current, RootState, updateMutation } from '../../store/store';
 import * as Icon from 'react-bootstrap-icons';
-import { Trans } from 'react-i18next';
+import MutationTrans from '../../atoms/trans/mutation-trans';
 
 export type AddMutationProps = {
-  onAddMutation: (mutationId: MutationId) => void;
+  onAddMutation: (mutation: Mutation) => void;
 };
 
 export const AddMutationComponent = (props: AddMutationProps) => {
   const { onAddMutation } = props;
 
-  const selectedMutation = useSelector<{ root: RootState }, MutationId>(
+  const selectedMutation = useSelector<{ root: RootState }, Mutation>(
     (state) => state.root.selectedMutation
   );
 
@@ -20,7 +20,7 @@ export const AddMutationComponent = (props: AddMutationProps) => {
     (state) => state.root.current
   );
 
-  const mutations = useSelector<{ root: RootState }, MutationId[]>(
+  const mutations = useSelector<{ root: RootState }, Mutation[]>(
     (state) => state.root.data.mutations
   );
 
@@ -35,7 +35,7 @@ export const AddMutationComponent = (props: AddMutationProps) => {
           onChange={(event) => {
             dispatch(
               updateMutation({
-                mutation: Number(event.target.value) as MutationId,
+                mutation: Number(event.target.value) as Mutation,
               })
             );
           }}
@@ -46,9 +46,7 @@ export const AddMutationComponent = (props: AddMutationProps) => {
               value={mutation}
               disabled={current.mutations[mutation]}
             >
-              <Trans i18nKey={'mutations.' + mutation}>
-                {String(mutation)}
-              </Trans>
+              <MutationTrans mutation={mutation}></MutationTrans>
             </option>
           ))}
         </Form.Select>

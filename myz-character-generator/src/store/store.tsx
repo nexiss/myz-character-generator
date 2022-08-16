@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   Attributes,
   Character,
-  MutationId,
+  Mutation,
   Role,
   Skill,
   Talent,
@@ -20,7 +20,7 @@ export type Current = {
   };
   role: Role;
   attributes: Attributes;
-  mutations: Record<MutationId, boolean>;
+  mutations: Record<Mutation, boolean>;
   skills: Skill[];
   talents: Talent[];
   gear: any;
@@ -28,18 +28,18 @@ export type Current = {
 
 export type RootState = {
   selectedRole: ROLE_OPTION_VALUE;
-  selectedMutation: MutationId;
+  selectedMutation: Mutation;
   current: Current;
   data: {
     roles: ROLE_OPTION_VALUE[];
-    mutations: MutationId[];
+    mutations: Mutation[];
   };
   characters: Character[];
 };
 
 const initialState: RootState = {
   selectedRole: RANDOM,
-  selectedMutation: MutationId.mutation1,
+  selectedMutation: Mutation.mutation1,
   current: {
     description: {
       name: '',
@@ -67,16 +67,14 @@ export const rootSlice = createSlice({
   name: 'root',
   initialState,
   reducers: {
-    addMutation: (state, action: PayloadAction<{ id: MutationId }>) => {
-      if (state.current.mutations[action.payload.id] === false) {
-        state.current.mutations[action.payload.id] = true;
-      }
+    addMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
+      state.current.mutations[action.payload.mutation] = true;
     },
     generate: (state) => {
       state.current = generateRandomCurrent(state.current, state.selectedRole);
     },
-    removeMutation: (state, action: PayloadAction<{ id: MutationId }>) => {
-      state.current.mutations[action.payload.id] = false;
+    removeMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
+      state.current.mutations[action.payload.mutation] = false;
     },
     saveNewCharacter: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -96,10 +94,7 @@ export const rootSlice = createSlice({
     updateName: (state, action: PayloadAction<{ name: string }>) => {
       state.current.description.name = action.payload.name;
     },
-    updateMutation: (
-      state,
-      action: PayloadAction<{ mutation: MutationId }>
-    ) => {
+    updateMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
       state.selectedMutation = action.payload.mutation;
     },
     updateRole: (state, action: PayloadAction<{ role: ROLE_OPTION_VALUE }>) => {

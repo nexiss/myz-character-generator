@@ -1,8 +1,4 @@
-export enum MutationId {
+export enum Mutation {
   mutation1,
   mutation2,
 }
-
-export type Mutation = {
-  id: MutationId;
-};

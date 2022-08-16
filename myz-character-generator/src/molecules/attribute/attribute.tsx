@@ -1,5 +1,5 @@
 import { Form, Row, Col } from 'react-bootstrap';
-import { Trans } from 'react-i18next';
+import AttributeTrans from '../../atoms/trans/attribute-trans';
 import { Attribute } from '../../models';
 
 export type AttributeProps = {
@@ -13,7 +13,7 @@ export const AttributeComponent = (props: AttributeProps) => {
   return (
     <Form.Group as={Row} className="mb-2">
       <Form.Label column xs="6">
-        <Trans i18nKey={'attributes.' + attribute}>{attribute}</Trans>
+        <AttributeTrans attribute={attribute}></AttributeTrans>
       </Form.Label>
       <Col xs="6">
         <Form.Control

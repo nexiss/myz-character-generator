@@ -13,12 +13,12 @@
         "random": "Aleatorio",
         "0": "Matón",
         "1": "Mecánico",
-        "2": "Stalker",
+        "2": "Merodeador",
         "3": "Arreglador",
         "4": "Adiestrador de perros",
-        "5": "Chronicler",
-        "6": "Boss",
-        "7": "Slave"
+        "5": "Cronista",
+        "6": "Jefe",
+        "7": "Esclavo"
     },
     "mutations": {
         "0": "Mutación 0",
