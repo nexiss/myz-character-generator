@@ -39,7 +39,7 @@ export type RootState = {
 
 const initialState: RootState = {
   selectedRole: RANDOM,
-  selectedMutation: Mutation.mutation1,
+  selectedMutation: Mutation.INSECT_WINGS,
   current: {
     description: {
       name: '',

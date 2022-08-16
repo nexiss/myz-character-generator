@@ -1,16 +1,97 @@
 {
-    "title": "This is Mutant Year Zero - Character Generator",
+    "attributes": {
+        "agility": "Agility",
+        "empathy": "Empathy",
+        "strength": "Strength",
+        "wits": "Wits"
+    },
+    "mutations": {
+        "0": {
+            "title": "Insect wings"
+        },
+        "1": {
+            "title": "Fire breath"
+        },
+        "2": {
+            "title": "amphibious"
+        },
+        "3": {
+            "title": "Eat decomposition"
+        },
+        "4": {
+            "title": "Four arms"
+        },
+        "5": {
+            "title": "Spores"
+        },
+        "6": {
+            "title": "Beast man"
+        },
+        "7": {
+            "title": "Human magnet"
+        },
+        "8": {
+            "title": "Insectoid"
+        },
+        "9": {
+            "title": "Luminescence"
+        },
+        "10": {
+            "title": "Necrophage"
+        },
+        "11": {
+            "title": "Parasite"
+        },
+        "12": {
+            "title": "Pathokinesis"
+        },
+        "13": {
+            "title": "Frog legs"
+        },
+        "14": {
+            "title": "Pyrokinesis"
+        },
+        "15": {
+            "title": "Human plant"
+        },
+        "16": {
+            "title": "Tracker"
+        },
+        "17": {
+            "title": "Extreme reflexes"
+        },
+        "18": {
+            "title": "Reptilian"
+        },
+        "19": {
+            "title": "Acid saliva"
+        },
+        "20": {
+            "title": "Sonar"
+        },
+        "21": {
+            "title": "Telepathy"
+        },
+        "22": {
+            "title": "Mental terror"
+        },
+        "23": {
+            "title": "Puppeteer"
+        },
+        "24": {
+            "title": "Speedster"
+        }
+    },
+    "others": {
+        "characters": "Characters",
+        "generate": "Generate",
+        "name": "Name",
+        "role": "Role"
+    },
     "role-selector": {
         "hint": "You can select an specific role or it will be randomly chosen."
     },
-    "others": {
-        "name": "Name",
-        "role": "Role",
-        "generate": "Generate",
-        "characters": "Characters"
-    },
     "roles": {
-        "random": "Random",
         "0": "Enforcer",
         "1": "Gearhead",
         "2": "Stalker",
@@ -18,16 +99,8 @@
         "4": "Dog Handler",
         "5": "Chronicler",
         "6": "Boss",
-        "7": "Slave"
+        "7": "Slave",
+        "random": "Random"
     },
-    "mutations": {
-        "0": "Mutation 0",
-        "1": "Mutation 1"
-    },
-    "attributes": {
-        "strength": "Strength",
-        "agility": "Agility",
-        "wits": "Wits",
-        "empathy": "Empathy"
-    }
+    "title": "This is Mutant Year Zero - Character Generator"
 }

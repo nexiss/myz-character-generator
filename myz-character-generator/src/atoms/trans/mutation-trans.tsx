@@ -7,7 +7,11 @@ export type MutationProps = {
 
 export const MutationTrans = (props: MutationProps) => {
   const { mutation } = props;
-  return <Trans i18nKey={'mutations.' + mutation}>{String(mutation)}</Trans>;
+  return (
+    <Trans i18nKey={'mutations.' + mutation + '.title'}>
+      {String(mutation)}
+    </Trans>
+  );
 };
 
 export default MutationTrans;

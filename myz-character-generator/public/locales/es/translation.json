@@ -1,16 +1,97 @@
 {
-    "title": "Esto es Mutant Year Zero - Character Generator",
+    "attributes": {
+        "agility": "Destreza",
+        "empathy": "Empatía",
+        "strength": "Fuerza",
+        "wits": "Intelecto"
+    },
+    "mutations": {
+        "0": {
+            "title": "Alas de insecto"
+        },
+        "1": {
+            "title": "Aliento de fuego"
+        },
+        "2": {
+            "title": "Anfibio"
+        },
+        "3": {
+            "title": "Comer Descomposición"
+        },
+        "4": {
+            "title": "Cuatro brazos"
+        },
+        "5": {
+            "title": "Esporas"
+        },
+        "6": {
+            "title": "Hombre bestia"
+        },
+        "7": {
+            "title": "Imán humano"
+        },
+        "8": {
+            "title": "Insectoide"
+        },
+        "9": {
+            "title": "Luminiscencia"
+        },
+        "10": {
+            "title": "Necrófago"
+        },
+        "11": {
+            "title": "Parásito"
+        },
+        "12": {
+            "title": "Patoquinesis"
+        },
+        "13": {
+            "title": "Piernas de rana"
+        },
+        "14": {
+            "title": "Piroquinesis"
+        },
+        "15": {
+            "title": "Planta humana"
+        },
+        "16": {
+            "title": "Rastreador"
+        },
+        "17": {
+            "title": "Reflejos extremos"
+        },
+        "18": {
+            "title": "Reptiliano"
+        },
+        "19": {
+            "title": "Saliva ácida"
+        },
+        "20": {
+            "title": "Sónar"
+        },
+        "21": {
+            "title": "Telepatía"
+        },
+        "22": {
+            "title": "Terror mental"
+        },
+        "23": {
+            "title": "Titiritero"
+        },
+        "24": {
+            "title": "Velocista"
+        }
+    },
+    "others": {
+        "characters": "Personajes",
+        "generate": "Generar",
+        "name": "Nombre",
+        "role": "Rol"
+    },
     "role-selector": {
         "hint": "Puede escoger un rol específico o se escogerá aleatoriamente"
     },
-    "others": {
-        "name": "Nombre",
-        "role": "Rol",
-        "generate": "Generar",
-        "characters": "Personajes"
-    },
     "roles": {
-        "random": "Aleatorio",
         "0": "Matón",
         "1": "Mecánico",
         "2": "Merodeador",
@@ -18,16 +99,8 @@
         "4": "Adiestrador de perros",
         "5": "Cronista",
         "6": "Jefe",
-        "7": "Esclavo"
+        "7": "Esclavo",
+        "random": "Aleatorio"
     },
-    "mutations": {
-        "0": "Mutación 0",
-        "1": "Mutación 1"
-    },
-    "attributes": {
-        "strength": "Fuerza",
-        "agility": "Destreza",
-        "wits": "Intelecto",
-        "empathy": "Empatía"
-    }
+    "title": "Esto es Mutant Year Zero - Character Generator"
 }
