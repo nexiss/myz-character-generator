@@ -26,7 +26,9 @@ export const DescriptionComponent = () => {
             max={4}
             value={current.description.name}
             onChange={(event) =>
-              dispatch(updateName({ name: event.target.value }))
+              dispatch(
+                updateName({ name: event.target.value, isNameTouched: true })
+              )
             }
           />
         </Col>

@@ -14,6 +14,10 @@ import {
   getMutations,
 } from './store.utils';
 
+export type GenerateOptions = {
+  isNameTouched: boolean;
+};
+
 export type Current = {
   description: {
     name: string;
@@ -29,6 +33,7 @@ export type Current = {
 export type RootState = {
   selectedRole: ROLE_OPTION_VALUE;
   selectedMutation: Mutation;
+  generateOptions: GenerateOptions;
   current: Current;
   data: {
     roles: ROLE_OPTION_VALUE[];
@@ -40,6 +45,9 @@ export type RootState = {
 const initialState: RootState = {
   selectedRole: RANDOM,
   selectedMutation: Mutation.INSECT_WINGS,
+  generateOptions: {
+    isNameTouched: false,
+  },
   current: {
     description: {
       name: '',
@@ -71,7 +79,11 @@ export const rootSlice = createSlice({
       state.current.mutations[action.payload.mutation] = true;
     },
     generate: (state) => {
-      state.current = generateRandomCurrent(state.current, state.selectedRole);
+      state.current = generateRandomCurrent(
+        state.current,
+        state.selectedRole,
+        state.generateOptions
+      );
     },
     removeMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
       state.current.mutations[action.payload.mutation] = false;
@@ -91,8 +103,14 @@ export const rootSlice = createSlice({
       // immutable state based off those changes
       console.log('update');
     },
-    updateName: (state, action: PayloadAction<{ name: string }>) => {
+    updateName: (
+      state,
+      action: PayloadAction<{ name: string; isNameTouched?: boolean }>
+    ) => {
       state.current.description.name = action.payload.name;
+      if (action.payload.isNameTouched) {
+        state.generateOptions.isNameTouched = !!action.payload.isNameTouched;
+      }
     },
     updateMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
       state.selectedMutation = action.payload.mutation;
