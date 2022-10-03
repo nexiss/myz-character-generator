@@ -2,7 +2,7 @@ import { Row, ThemeProvider } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import './App.css';
-import { RootState } from './store/store';
+import { RootState } from './store/state';
 import CharacterGenerator from './templates/character-generator/character-generator';
 
 function App() {

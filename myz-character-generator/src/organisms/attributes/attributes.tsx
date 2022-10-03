@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Attribute, Attributes } from '../../models';
 import AttributeComponent from '../../molecules/attribute/attribute';
-import { Current, RootState, updateAttributes } from '../../store/store';
+import { CharacterSheet, RootState } from '../../store/state';
+import { updateAttributes } from '../../store/store';
 
 export const AttributesComponent = () => {
   const updateAttribute = (key: keyof Attributes, value: string) => {
@@ -15,7 +16,7 @@ export const AttributesComponent = () => {
     );
   };
 
-  const current = useSelector<{ root: RootState }, Current>(
+  const current = useSelector<{ root: RootState }, CharacterSheet>(
     (state) => state.root.current
   );
 

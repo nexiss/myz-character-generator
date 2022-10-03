@@ -4,12 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import RoleTrans from '../../atoms/trans/role-trans';
 import ActionsBar from '../../molecules/actions-bar/actions-bar';
 import { ROLE_OPTION_VALUE } from '../../store/data';
-import {
-  generate,
-  RootState,
-  updateCharacter,
-  updateRole,
-} from '../../store/store';
+import { RootState } from '../../store/state';
+import { generate, updateCharacter, updateRole } from '../../store/store';
 import AttributesComponent from '../attributes/attributes';
 import DescriptionComponent from '../description/description';
 import Mutations from '../mutations/mutations';

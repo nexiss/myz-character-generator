@@ -1,12 +1,12 @@
 import { Attribute, Attributes, Mutation, Role } from '../models';
-import { Current, GenerateOptions } from './store';
+import { CharacterSheet, GenerateOptions } from './state';
 
 export const isNumber = (n: any): n is number => typeof n === 'number';
 
 export const buildBaseInfo = (
   options: { name: string },
   generateOptions: GenerateOptions
-): Pick<Current, 'role' | 'description'> => ({
+): Pick<CharacterSheet, 'role' | 'description'> => ({
   role: getRandomRole(),
   description: {
     name:
@@ -24,38 +24,38 @@ const getRandomRole = (): Role => {
   return enumValues[index];
 };
 
-export const addAttributes = <T extends Pick<Current, 'role'>>(
-  pickedCurrent: T
-): T & Pick<Current, 'attributes'> => ({
-  ...pickedCurrent,
-  attributes: generateRandomAttributes(pickedCurrent.role),
+export const addAttributes = <T extends Pick<CharacterSheet, 'role'>>(
+  pickedCharacterSheet: T
+): T & Pick<CharacterSheet, 'attributes'> => ({
+  ...pickedCharacterSheet,
+  attributes: generateRandomAttributes(pickedCharacterSheet.role),
 });
 
 export const addMutations = <T extends {}>(
-  pickedCurrent: T
-): T & Pick<Current, 'mutations'> => ({
-  ...pickedCurrent,
+  pickedCharacterSheet: T
+): T & Pick<CharacterSheet, 'mutations'> => ({
+  ...pickedCharacterSheet,
   mutations: {} as Record<Mutation, boolean>, // TODO: fill all the mutations
 });
 
 export const addSkills = <T extends {}>(
-  pickedCurrent: T
-): T & Pick<Current, 'skills'> => ({
-  ...pickedCurrent,
+  pickedCharacterSheet: T
+): T & Pick<CharacterSheet, 'skills'> => ({
+  ...pickedCharacterSheet,
   skills: [],
 });
 
 export const addTalents = <T extends {}>(
-  pickedCurrent: T
-): T & Pick<Current, 'talents'> => ({
-  ...pickedCurrent,
+  pickedCharacterSheet: T
+): T & Pick<CharacterSheet, 'talents'> => ({
+  ...pickedCharacterSheet,
   talents: [],
 });
 
 export const addGear = <T extends {}>(
-  pickedCurrent: T
-): T & Pick<Current, 'gear'> => ({
-  ...pickedCurrent,
+  pickedCharacterSheet: T
+): T & Pick<CharacterSheet, 'gear'> => ({
+  ...pickedCharacterSheet,
   gear: {} as any, // TODO: set real gear values
 });
 

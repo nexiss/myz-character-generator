@@ -1,6 +1,6 @@
 import { Mutation } from '../models';
 import { RANDOM, ROLE_OPTION_VALUE } from './data';
-import { Current, GenerateOptions } from './store';
+import { CharacterSheet, GenerateOptions } from './state';
 import {
   addAttributes,
   buildBaseInfo,
@@ -24,10 +24,10 @@ export const buildInitialMutations = (): Record<Mutation, boolean> => {
 };
 
 export const generateRandomCurrent = (
-  current: Current,
+  current: CharacterSheet,
   roleOption: ROLE_OPTION_VALUE,
   generateOptions: GenerateOptions
-): Current => {
+): CharacterSheet => {
   switch (roleOption) {
     case RANDOM:
     default:
@@ -36,9 +36,9 @@ export const generateRandomCurrent = (
 };
 
 const buildFullRandom = (
-  current: Current,
+  current: CharacterSheet,
   generateOptions: GenerateOptions
-): Current => {
+): CharacterSheet => {
   const c1 = buildBaseInfo({ name: current.description.name }, generateOptions);
   const c2 = addAttributes(c1);
   const c3 = addMutations(c2);

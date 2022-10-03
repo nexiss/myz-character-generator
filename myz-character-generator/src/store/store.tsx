@@ -1,46 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-  Attributes,
-  Character,
-  Mutation,
-  Role,
-  Skill,
-  Talent,
-} from '../models';
+import { Attributes, Mutation, Role } from '../models';
 import { RANDOM, roles, ROLE_OPTION_VALUE } from './data';
+import { RootState } from './state';
 import {
   buildInitialMutations,
   generateRandomCurrent,
   getMutations,
 } from './store.utils';
-
-export type GenerateOptions = {
-  isNameTouched: boolean;
-};
-
-export type Current = {
-  description: {
-    name: string;
-  };
-  role: Role;
-  attributes: Attributes;
-  mutations: Record<Mutation, boolean>;
-  skills: Skill[];
-  talents: Talent[];
-  gear: any;
-};
-
-export type RootState = {
-  selectedRole: ROLE_OPTION_VALUE;
-  selectedMutation: Mutation;
-  generateOptions: GenerateOptions;
-  current: Current;
-  data: {
-    roles: ROLE_OPTION_VALUE[];
-    mutations: Mutation[];
-  };
-  characters: Character[];
-};
 
 const initialState: RootState = {
   selectedRole: RANDOM,
@@ -71,52 +37,67 @@ const initialState: RootState = {
   },
 };
 
+const descriptionReducers = {
+  updateName: (
+    state: RootState,
+    action: PayloadAction<{ name: string; isNameTouched?: boolean }>
+  ) => {
+    state.current.description.name = action.payload.name;
+    if (action.payload.isNameTouched) {
+      state.generateOptions.isNameTouched = !!action.payload.isNameTouched;
+    }
+  },
+  updateRole: (
+    state: RootState,
+    action: PayloadAction<{ role: ROLE_OPTION_VALUE }>
+  ) => {
+    state.selectedRole = action.payload.role;
+  },
+};
+
+const mutationReducers = {
+  addMutation: (
+    state: RootState,
+    action: PayloadAction<{ mutation: Mutation }>
+  ) => {
+    state.current.mutations[action.payload.mutation] = true;
+  },
+  removeMutation: (
+    state: RootState,
+    action: PayloadAction<{ mutation: Mutation }>
+  ) => {
+    state.current.mutations[action.payload.mutation] = false;
+  },
+  updateMutation: (
+    state: RootState,
+    action: PayloadAction<{ mutation: Mutation }>
+  ) => {
+    state.selectedMutation = action.payload.mutation;
+  },
+};
+
+const characterReducers = {
+  saveNewCharacter: (state: RootState) => {
+    console.log('save new');
+  },
+  updateCharacter: (state: RootState) => {
+    console.log('update');
+  },
+};
+
 export const rootSlice = createSlice({
   name: 'root',
   initialState,
   reducers: {
-    addMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
-      state.current.mutations[action.payload.mutation] = true;
-    },
+    ...mutationReducers,
+    ...descriptionReducers,
+    ...characterReducers,
     generate: (state) => {
       state.current = generateRandomCurrent(
         state.current,
         state.selectedRole,
         state.generateOptions
       );
-    },
-    removeMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
-      state.current.mutations[action.payload.mutation] = false;
-    },
-    saveNewCharacter: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      console.log('save new');
-    },
-
-    updateCharacter: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      console.log('update');
-    },
-    updateName: (
-      state,
-      action: PayloadAction<{ name: string; isNameTouched?: boolean }>
-    ) => {
-      state.current.description.name = action.payload.name;
-      if (action.payload.isNameTouched) {
-        state.generateOptions.isNameTouched = !!action.payload.isNameTouched;
-      }
-    },
-    updateMutation: (state, action: PayloadAction<{ mutation: Mutation }>) => {
-      state.selectedMutation = action.payload.mutation;
-    },
-    updateRole: (state, action: PayloadAction<{ role: ROLE_OPTION_VALUE }>) => {
-      state.selectedRole = action.payload.role;
     },
     updateAttributes: (
       state,
