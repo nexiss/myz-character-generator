@@ -1,5 +1,6 @@
 import { Attribute, Attributes, Mutation, Role } from '../models';
 import { CharacterSheet, GenerateOptions } from './state';
+import { getMutations } from './store.utils';
 
 export const isNumber = (n: any): n is number => typeof n === 'number';
 
@@ -33,10 +34,18 @@ export const addAttributes = <T extends Pick<CharacterSheet, 'role'>>(
 
 export const addMutations = <T extends {}>(
   pickedCharacterSheet: T
-): T & Pick<CharacterSheet, 'mutations'> => ({
-  ...pickedCharacterSheet,
-  mutations: {} as Record<Mutation, boolean>, // TODO: fill all the mutations
-});
+): T & Pick<CharacterSheet, 'mutations'> => {
+  const mutations = getMutations();
+  const randomMutationIndex = getRandomInt(0, mutations.length);
+  const mutationsMap = mutations.reduce((acc, current, index) => {
+    acc[current] = randomMutationIndex === index;
+    return acc;
+  }, {} as Record<Mutation, boolean>);
+  return {
+    ...pickedCharacterSheet,
+    mutations: mutationsMap,
+  };
+};
 
 export const addSkills = <T extends {}>(
   pickedCharacterSheet: T
