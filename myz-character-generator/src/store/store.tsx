@@ -9,6 +9,7 @@ import {
   buildInitialMutations,
   generateRandomCurrent,
   getMutations,
+  getSkills,
 } from './store.utils';
 
 const initialState: RootState = {
@@ -21,7 +22,7 @@ const initialState: RootState = {
     description: {
       name: '',
     },
-    role: Role.Enforcer,
+    role: Role.ENFORCER,
     attributes: {
       strength: 0,
       agility: 0,
@@ -37,6 +38,7 @@ const initialState: RootState = {
   data: {
     roles,
     mutations: getMutations(),
+    skills: getSkills(),
   },
 };
 

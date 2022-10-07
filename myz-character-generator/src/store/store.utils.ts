@@ -1,6 +1,13 @@
-import { Mutation } from '../models';
+import {
+  BasicSkill,
+  Mutation,
+  Role,
+  RoleSkill,
+  Skill,
+  SkillByRole,
+} from '../models';
 import { RANDOM, ROLE_OPTION_VALUE } from './data';
-import { CharacterSheet, GenerateOptions } from './state';
+import { CharacterSheet, CharacterSkills, GenerateOptions } from './state';
 import {
   addAttributes,
   buildBaseInfo,
@@ -8,12 +15,46 @@ import {
   addMutations,
   addSkills,
   addTalents,
-  isNumber,
+  getRandomInt,
 } from './store.utils.internal';
 
 export const getMutations = (): Mutation[] => {
-  // TODO: Filter is needed because Object.values is returning also keys
-  return Object.values(Mutation).filter(isNumber) as Mutation[];
+  return Object.values(Mutation);
+};
+
+export const generateSkillsByRole = <T extends Role>(
+  role?: T
+): CharacterSkills<T> => {
+  const basicSkills = Object.values(BasicSkill);
+  switch (role) {
+    case Role.BOSS:
+    case Role.CHRONICLER:
+    case Role.DOG_HANDLER:
+    case Role.ENFORCER:
+    case Role.FIXER:
+    case Role.GEARHEAD:
+    case Role.SLAVE:
+    case Role.STALKER:
+      const skill1Index = getRandomInt(0, basicSkills.length);
+      let skill2Index;
+      do {
+        skill2Index = getRandomInt(0, basicSkills.length);
+      } while (skill2Index === skill1Index);
+
+      return [
+        SkillByRole[role],
+        basicSkills[skill1Index],
+        basicSkills[skill2Index],
+      ];
+    default:
+      return [...basicSkills];
+  }
+};
+
+export const getSkills = (): Skill[] => {
+  const basicSkills = Object.values(BasicSkill);
+  const roleSkills = Object.values(RoleSkill);
+  return [...basicSkills, ...roleSkills];
 };
 
 export const buildInitialMutations = (): Record<Mutation, boolean> => {
@@ -35,8 +76,8 @@ export const generateRandomCurrent = (
   }
 };
 
-const buildFullRandom = (
-  current: CharacterSheet,
+const buildFullRandom = <U extends Pick<CharacterSheet, 'description'>>(
+  current: U,
   generateOptions: GenerateOptions
 ): CharacterSheet => {
   const c1 = buildBaseInfo({ name: current.description.name }, generateOptions);

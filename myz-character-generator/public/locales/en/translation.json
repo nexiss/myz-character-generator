@@ -5,80 +5,142 @@
         "strength": "Strength",
         "wits": "Wits"
     },
+    "skills": {
+        "ENDURE": {
+            "title": "Endure"
+        },
+        "FORCE": {
+            "title": "Force"
+        },
+        "FIGHT": {
+            "title": "Fight"
+        },
+        "SNEAK": {
+            "title": "Sneak"
+        },
+        "MOVE": {
+            "title": "Move"
+        },
+        "SHOOT": {
+            "title": "Shoot"
+        },
+        "SCOUT": {
+            "title": "Scout"
+        },
+        "COMPREHEND": {
+            "title": "Comprehend"
+        },
+        "KNOW_THE_ZONE": {
+            "title": "Know the zone"
+        },
+        "SENSE_EMOTION": {
+            "title": "Sense emotion"
+        },
+        "MANIPULATE": {
+            "title": "Manipulate"
+        },
+        "HEAL": {
+            "title": "Heal"
+        },
+        "INTIMIDATE": {
+            "title": "Intimidate"
+        },
+        "JURY_RIG": {
+            "title": "Jury rig"
+        },
+        "FIND_THE_PATH":{
+            "title": "Find the path"
+        },
+        "MAKE_A_DEAL": {
+            "title": "Make a deal"
+        },
+        "SIC_THE_DOG": {
+            "title": "Sic the dog"
+        },
+        "INSPIRE": {
+            "title": "Inspire"
+        },
+        "COMMAND": {
+            "title": "Command"
+        },
+        "SHAKE_IT_OFF": {
+            "title": "Share it off"
+        }
+    },
     "mutations": {
-        "0": {
+        "INSECT_WINGS": {
             "title": "Insect wings"
         },
-        "1": {
+        "FIRE_BREATH": {
             "title": "Fire breath"
         },
-        "2": {
+        "AMPHIBIOUS": {
             "title": "amphibious"
         },
-        "3": {
+        "EAT_ESCOMPOSITION": {
             "title": "Eat decomposition"
         },
-        "4": {
+        "FOUR_ARMS": {
             "title": "Four arms"
         },
-        "5": {
+        "SPORES": {
             "title": "Spores"
         },
-        "6": {
+        "BEAST_MAN": {
             "title": "Beast man"
         },
-        "7": {
+        "HUMAN_MAGNET": {
             "title": "Human magnet"
         },
-        "8": {
+        "INSECTOID": {
             "title": "Insectoid"
         },
-        "9": {
+        "LUMINESCENCE": {
             "title": "Luminescence"
         },
-        "10": {
+        "NECROPHAGE": {
             "title": "Necrophage"
         },
-        "11": {
+        "PARASITE": {
             "title": "Parasite"
         },
-        "12": {
+        "PATHOKINESIS": {
             "title": "Pathokinesis"
         },
-        "13": {
+        "FROG_LEGS": {
             "title": "Frog legs"
         },
-        "14": {
+        "PYROKINESIS": {
             "title": "Pyrokinesis"
         },
-        "15": {
+        "HUMAN_PLANT": {
             "title": "Human plant"
         },
-        "16": {
+        "TRACKER": {
             "title": "Tracker"
         },
-        "17": {
+        "EXTREME_REFLEXES": {
             "title": "Extreme reflexes"
         },
-        "18": {
+        "REPTILIAN": {
             "title": "Reptilian"
         },
-        "19": {
+        "ACID_SALIVA": {
             "title": "Acid saliva"
         },
-        "20": {
+        "SONAR": {
             "title": "Sonar"
         },
-        "21": {
+        "TELEPATHY": {
             "title": "Telepathy"
         },
-        "22": {
+        "MENTAL_TERROR": {
             "title": "Mental terror"
         },
-        "23": {
+        "PUPPETEER": {
             "title": "Puppeteer"
         },
-        "24": {
+        "SPEEDSTER": {
             "title": "Speedster"
         }
     },
@@ -92,14 +154,14 @@
         "hint": "You can select an specific role or it will be randomly chosen."
     },
     "roles": {
-        "0": "Enforcer",
-        "1": "Gearhead",
-        "2": "Stalker",
-        "3": "Fixer",
-        "4": "Dog Handler",
-        "5": "Chronicler",
-        "6": "Boss",
-        "7": "Slave",
+        "ENFORCER": "Enforcer",
+        "GEARHEAD": "Gearhead",
+        "STALKER": "Stalker",
+        "FIXER": "Fixer",
+        "DOG_HANDLER": "Dog Handler",
+        "CHRONICLER": "Chronicler",
+        "BOSS": "Boss",
+        "SLAVE": "Slave",
         "random": "Random"
     },
     "title": "This is Mutant Year Zero - Character Generator"

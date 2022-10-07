@@ -3,8 +3,10 @@ import {
   Character,
   Mutation,
   Role,
-  Skill,
   Talent,
+  Skill,
+  BasicSkill,
+  SkillByRole,
 } from '../models';
 import { ROLE_OPTION_VALUE } from './data';
 
@@ -12,14 +14,23 @@ export type GenerateOptions = {
   isNameTouched: boolean;
 };
 
-export type CharacterSheet = {
+export type CharacterSkills<T extends Role> = Array<
+  BasicSkill | typeof SkillByRole[T]
+>;
+
+export type PCharacterSheet<
+  T extends Role,
+  U extends keyof CharacterSheet
+> = Pick<CharacterSheet<T>, U>;
+
+export type CharacterSheet<T extends Role = Role> = {
   description: {
     name: string;
   };
-  role: Role;
+  role: T;
   attributes: Attributes;
   mutations: Record<Mutation, boolean>;
-  skills: Skill[];
+  skills: CharacterSkills<T>;
   talents: Talent[];
   gear: any;
 };
@@ -32,6 +43,7 @@ export type RootState = {
   data: {
     roles: ROLE_OPTION_VALUE[];
     mutations: Mutation[];
+    skills: Skill[];
   };
   characters: Character[];
 };

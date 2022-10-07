@@ -5,80 +5,142 @@
         "strength": "Fuerza",
         "wits": "Intelecto"
     },
+    "skills": {
+        "ENDURE": {
+            "title": "Resistir"
+        },
+        "FORCE": {
+            "title": "Fuerza"
+        },
+        "FIGHT": {
+            "title": "Luchar"
+        },
+        "SNEAK": {
+            "title": "Escabullirse"
+        },
+        "MOVE": {
+            "title": "Moverse"
+        },
+        "SHOOT": {
+            "title": "Disparar"
+        },
+        "SCOUT": {
+            "title": "Explorar"
+        },
+        "COMPREHEND": {
+            "title": "Comprender"
+        },
+        "KNOW_THE_ZONE": {
+            "title": "Conocer la zona"
+        },
+        "SENSE_EMOTION": {
+            "title": "Sentir emociones"
+        },
+        "MANIPULATE": {
+            "title": "Manipular"
+        },
+        "HEAL": {
+            "title": "Curar"
+        },
+        "INTIMIDATE": {
+            "title": "Intimidar"
+        },
+        "JURY_RIG": {
+            "title": "Hacer un apaño"
+        },
+        "FIND_THE_PATH": {
+            "title": "Encontrar el camino"
+        },
+        "MAKE_A_DEAL": {
+            "title": "Hacer un trato"
+        },
+        "SIC_THE_DOG": {
+            "title": "Soltar al perro"
+        },
+        "INSPIRE": {
+            "title": "Inspirar"
+        },
+        "COMMAND": {
+            "title": "Dar órdenes"
+        },
+        "SHAKE_IT_OFF": {
+            "title": "Sácatelo de la cabeza"
+        }
+    },
     "mutations": {
-        "0": {
+        "INSECT_WINGS": {
             "title": "Alas de insecto"
         },
-        "1": {
+        "FIRE_BREATH": {
             "title": "Aliento de fuego"
         },
-        "2": {
+        "AMPHIBIOUS": {
             "title": "Anfibio"
         },
-        "3": {
+        "EAT_ESCOMPOSITION": {
             "title": "Comer Descomposición"
         },
-        "4": {
+        "FOUR_ARMS": {
             "title": "Cuatro brazos"
         },
-        "5": {
+        "SPORES": {
             "title": "Esporas"
         },
-        "6": {
+        "BEAST_MAN": {
             "title": "Hombre bestia"
         },
-        "7": {
+        "HUMAN_MAGNET": {
             "title": "Imán humano"
         },
-        "8": {
+        "INSECTOID": {
             "title": "Insectoide"
         },
-        "9": {
+        "LUMINESCENCE": {
             "title": "Luminiscencia"
         },
-        "10": {
+        "NECROPHAGE": {
             "title": "Necrófago"
         },
-        "11": {
+        "PARASITE": {
             "title": "Parásito"
         },
-        "12": {
+        "PATHOKINESIS": {
             "title": "Patoquinesis"
         },
-        "13": {
+        "FROG_LEGS": {
             "title": "Piernas de rana"
         },
-        "14": {
+        "PYROKINESIS": {
             "title": "Piroquinesis"
         },
-        "15": {
+        "HUMAN_PLANT": {
             "title": "Planta humana"
         },
-        "16": {
+        "TRACKER": {
             "title": "Rastreador"
         },
-        "17": {
+        "EXTREME_REFLEXES": {
             "title": "Reflejos extremos"
         },
-        "18": {
+        "REPTILIAN": {
             "title": "Reptiliano"
         },
-        "19": {
+        "ACID_SALIVA": {
             "title": "Saliva ácida"
         },
-        "20": {
+        "SONAR": {
             "title": "Sónar"
         },
-        "21": {
+        "TELEPATHY": {
             "title": "Telepatía"
         },
-        "22": {
+        "MENTAL_TERROR": {
             "title": "Terror mental"
         },
-        "23": {
+        "PUPPETEER": {
             "title": "Titiritero"
         },
-        "24": {
+        "SPEEDSTER": {
             "title": "Velocista"
         }
     },
@@ -92,14 +154,14 @@
         "hint": "Puede escoger un rol específico o se escogerá aleatoriamente"
     },
     "roles": {
-        "0": "Matón",
+        "ENFORCER": "Matón",
         "1": "Mecánico",
-        "2": "Merodeador",
-        "3": "Arreglador",
-        "4": "Adiestrador de perros",
-        "5": "Cronista",
-        "6": "Jefe",
-        "7": "Esclavo",
+        "GEARHEAD": "Merodeador",
+        "FIXER": "Arreglador",
+        "DOG_HANDLER": "Adiestrador de perros",
+        "CHRONICLER": "Cronista",
+        "BOSS": "Jefe",
+        "SLAVE": "Esclavo",
         "random": "Aleatorio"
     },
     "title": "Esto es Mutant Year Zero - Character Generator"

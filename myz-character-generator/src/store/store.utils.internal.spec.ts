@@ -20,7 +20,7 @@ describe('buildBaseInfo', () => {
 
 describe('addAttributes', () => {
   it('should add random attributes to the object', () => {
-    const current = { role: Role.Boss };
+    const current = { role: Role.BOSS };
 
     const result = addAttributes(current);
 

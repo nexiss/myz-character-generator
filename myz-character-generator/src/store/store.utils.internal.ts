@@ -1,13 +1,11 @@
 import { Attribute, Attributes, Mutation, Role } from '../models';
-import { CharacterSheet, GenerateOptions } from './state';
-import { getMutations } from './store.utils';
-
-export const isNumber = (n: any): n is number => typeof n === 'number';
+import { GenerateOptions, PCharacterSheet } from './state';
+import { getMutations, generateSkillsByRole } from './store.utils';
 
 export const buildBaseInfo = (
   options: { name: string },
   generateOptions: GenerateOptions
-): Pick<CharacterSheet, 'role' | 'description'> => ({
+): PCharacterSheet<Role, 'description'> & PCharacterSheet<Role, 'role'> => ({
   role: getRandomRole(),
   description: {
     name:
@@ -18,23 +16,25 @@ export const buildBaseInfo = (
 });
 
 const getRandomRole = (): Role => {
-  // TODO: Filter is needed because Object.values is returning also keys
-  const enumValues = Object.values(Role).filter(isNumber) as Role[];
+  const enumValues = Object.values(Role) as Role[];
   const index = Math.floor(Math.random() * enumValues.length);
 
   return enumValues[index];
 };
 
-export const addAttributes = <T extends Pick<CharacterSheet, 'role'>>(
-  pickedCharacterSheet: T
-): T & Pick<CharacterSheet, 'attributes'> => ({
+export const addAttributes = <
+  T extends Role,
+  U extends PCharacterSheet<T, 'role'>
+>(
+  pickedCharacterSheet: U
+): U & PCharacterSheet<T, 'attributes'> => ({
   ...pickedCharacterSheet,
   attributes: generateRandomAttributes(pickedCharacterSheet.role),
 });
 
 export const addMutations = <T extends {}>(
   pickedCharacterSheet: T
-): T & Pick<CharacterSheet, 'mutations'> => {
+): T & PCharacterSheet<Role, 'mutations'> => {
   const mutations = getMutations();
   const randomMutationIndex = getRandomInt(0, mutations.length);
   const mutationsMap = mutations.reduce((acc, current, index) => {
@@ -47,23 +47,27 @@ export const addMutations = <T extends {}>(
   };
 };
 
-export const addSkills = <T extends {}>(
-  pickedCharacterSheet: T
-): T & Pick<CharacterSheet, 'skills'> => ({
-  ...pickedCharacterSheet,
-  skills: [],
-});
+export const addSkills = <T extends Role, U extends PCharacterSheet<T, 'role'>>(
+  pickedCharacterSheet: U
+): U & PCharacterSheet<U['role'], 'skills'> => {
+  const skills = generateSkillsByRole(pickedCharacterSheet.role);
+
+  return {
+    ...pickedCharacterSheet,
+    skills,
+  };
+};
 
 export const addTalents = <T extends {}>(
   pickedCharacterSheet: T
-): T & Pick<CharacterSheet, 'talents'> => ({
+): T & PCharacterSheet<Role, 'talents'> => ({
   ...pickedCharacterSheet,
   talents: [],
 });
 
 export const addGear = <T extends {}>(
   pickedCharacterSheet: T
-): T & Pick<CharacterSheet, 'gear'> => ({
+): T & PCharacterSheet<Role, 'gear'> => ({
   ...pickedCharacterSheet,
   gear: {} as any, // TODO: set real gear values
 });
@@ -91,7 +95,7 @@ const generateRandomAttributes = (role: Role): Attributes => {
   );
 };
 
-const getRandomInt = (min: number, max: number) => {
+export const getRandomInt = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max + 1); // Adding 1 because maximum is exclusive
   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive

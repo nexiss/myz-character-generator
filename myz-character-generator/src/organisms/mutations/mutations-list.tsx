@@ -18,7 +18,7 @@ export const MutationsList = () => {
       {Object.entries(current.mutations)
         .filter(([_, value]) => value)
         .map(([key], i: number) => {
-          const mutation = Number(key) as Mutation;
+          const mutation = key as Mutation;
           return (
             <li key={i} value={mutation}>
               <MutationTrans mutation={mutation}></MutationTrans>

@@ -36,7 +36,7 @@ export const AddMutationComponent = (props: AddMutationProps) => {
           onChange={(event) => {
             dispatch(
               updateMutation({
-                mutation: Number(event.target.value) as Mutation,
+                mutation: event.target.value as Mutation,
               })
             );
           }}

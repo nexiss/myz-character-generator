@@ -23,18 +23,12 @@ export const CharacterForm = () => {
 
   const dispatch = useDispatch();
 
-  const onRoleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    let role = event.target.value as ROLE_OPTION_VALUE;
-    const n = Number(event.target.value);
-    if (!isNaN(n)) {
-      role = n as ROLE_OPTION_VALUE;
-    }
-    return dispatch(
+  const onRoleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
+    dispatch(
       updateRole({
-        role,
+        role: event.target.value as ROLE_OPTION_VALUE,
       })
     );
-  };
 
   return (
     <Form>
