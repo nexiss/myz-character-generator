@@ -36,7 +36,7 @@ export const addMutations = <T extends {}>(
   pickedCharacterSheet: T
 ): T & PCharacterSheet<Role, 'mutations'> => {
   const mutations = getMutations();
-  const randomMutationIndex = getRandomInt(0, mutations.length);
+  const randomMutationIndex = getRandomInt(0, mutations.length - 1);
   const mutationsMap = mutations.reduce((acc, current, index) => {
     acc[current] = randomMutationIndex === index;
     return acc;

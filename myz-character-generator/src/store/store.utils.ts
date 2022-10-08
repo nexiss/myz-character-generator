@@ -7,7 +7,7 @@ import {
   SkillByRole,
 } from '../models';
 import { RANDOM, ROLE_OPTION_VALUE } from './data';
-import { CharacterSheet, CharacterSkills, GenerateOptions } from './state';
+import { CharacterSheet, GenerateOptions } from './state';
 import {
   addAttributes,
   buildBaseInfo,
@@ -24,8 +24,9 @@ export const getMutations = (): Mutation[] => {
 
 export const generateSkillsByRole = <T extends Role>(
   role?: T
-): CharacterSkills<T> => {
+): Record<Skill, boolean> => {
   const basicSkills = Object.values(BasicSkill);
+  const skills = getSkills();
   switch (role) {
     case Role.BOSS:
     case Role.CHRONICLER:
@@ -35,19 +36,24 @@ export const generateSkillsByRole = <T extends Role>(
     case Role.GEARHEAD:
     case Role.SLAVE:
     case Role.STALKER:
-      const skill1Index = getRandomInt(0, basicSkills.length);
-      let skill2Index;
+      const skill1Index = getRandomInt(0, basicSkills.length - 1);
+      let skill2Index: number;
       do {
-        skill2Index = getRandomInt(0, basicSkills.length);
+        skill2Index = getRandomInt(0, basicSkills.length - 1);
       } while (skill2Index === skill1Index);
 
-      return [
-        SkillByRole[role],
-        basicSkills[skill1Index],
-        basicSkills[skill2Index],
-      ];
+      return skills.reduce((acc, current, index) => {
+        acc[current] =
+          skill1Index === index ||
+          skill2Index === index ||
+          current === SkillByRole[role];
+        return acc;
+      }, {} as Record<Skill, boolean>);
     default:
-      return [...basicSkills];
+      return basicSkills.reduce((acc, current, index) => {
+        acc[current] = skill1Index === index || skill2Index === index;
+        return acc;
+      }, {} as Record<Skill, boolean>);
   }
 };
 
@@ -61,6 +67,13 @@ export const buildInitialMutations = (): Record<Mutation, boolean> => {
   return getMutations().reduce(
     (prev, current) => ({ ...prev, [current]: false }),
     {} as Record<Mutation, boolean>
+  );
+};
+
+export const buildInitialSkills = (): Record<Skill, boolean> => {
+  return getSkills().reduce(
+    (prev, current) => ({ ...prev, [current]: false }),
+    {} as Record<Skill, boolean>
   );
 };
 

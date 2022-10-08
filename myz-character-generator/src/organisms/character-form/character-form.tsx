@@ -9,6 +9,7 @@ import { generate, updateCharacter, updateRole } from '../../store/store';
 import AttributesComponent from '../attributes/attributes';
 import DescriptionComponent from '../description/description';
 import Mutations from '../mutations/mutations';
+import Skills from '../skills/skills';
 
 import './character-form.css';
 
@@ -72,7 +73,7 @@ export const CharacterForm = () => {
           <Mutations></Mutations>
         </Col>
         <Col md={6} className="skills-container">
-          Skills
+          <Skills></Skills>
         </Col>
         <Col md={6} className="talents-container">
           Talents

@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Attributes, Mutation, Role } from '../models';
+import { Attributes, BasicSkill, Mutation, Role } from '../models';
 import { RANDOM, roles } from './data';
 import { characterReducers } from './reducers/character-reducer';
 import { descriptionReducers } from './reducers/description-reducers';
 import { mutationReducers } from './reducers/mutation-reducer';
+import { skillReducers } from './reducers/skill-reducer';
 import { RootState } from './state';
 import {
   buildInitialMutations,
+  buildInitialSkills,
   generateRandomCurrent,
   getMutations,
   getSkills,
@@ -15,6 +17,7 @@ import {
 const initialState: RootState = {
   selectedRole: RANDOM,
   selectedMutation: Mutation.INSECT_WINGS,
+  selectedSkill: BasicSkill.COMPREHEND,
   generateOptions: {
     isNameTouched: false,
   },
@@ -30,7 +33,7 @@ const initialState: RootState = {
       empathy: 0,
     },
     mutations: buildInitialMutations(),
-    skills: [],
+    skills: buildInitialSkills(),
     talents: [],
     gear: {},
   },
@@ -46,6 +49,7 @@ export const rootSlice = createSlice({
   name: 'root',
   initialState,
   reducers: {
+    ...skillReducers,
     ...mutationReducers,
     ...descriptionReducers,
     ...characterReducers,
@@ -67,13 +71,16 @@ export const rootSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
+  addSkill,
   addMutation,
   generate,
+  removeSkill,
   removeMutation,
   saveNewCharacter,
   updateAttributes,
   updateCharacter,
   updateName,
+  updateSkill,
   updateMutation,
   updateRole,
 } = rootSlice.actions;

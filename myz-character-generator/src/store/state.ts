@@ -14,9 +14,7 @@ export type GenerateOptions = {
   isNameTouched: boolean;
 };
 
-export type CharacterSkills<T extends Role> = Array<
-  BasicSkill | typeof SkillByRole[T]
->;
+export type CharacterSkill<T extends Role> = BasicSkill | typeof SkillByRole[T];
 
 export type PCharacterSheet<
   T extends Role,
@@ -30,7 +28,7 @@ export type CharacterSheet<T extends Role = Role> = {
   role: T;
   attributes: Attributes;
   mutations: Record<Mutation, boolean>;
-  skills: CharacterSkills<T>;
+  skills: Record<CharacterSkill<T>, boolean>;
   talents: Talent[];
   gear: any;
 };
@@ -38,6 +36,7 @@ export type CharacterSheet<T extends Role = Role> = {
 export type RootState = {
   selectedRole: ROLE_OPTION_VALUE;
   selectedMutation: Mutation;
+  selectedSkill: Skill;
   generateOptions: GenerateOptions;
   current: CharacterSheet;
   data: {

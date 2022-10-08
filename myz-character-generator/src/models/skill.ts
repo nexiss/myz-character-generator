@@ -1,8 +1,9 @@
 import { Attribute } from './attributes';
+import { Role } from './role';
 
 export enum BasicSkill {
   ENDURE = 'ENDURE',
-  NFORCE = 'NFORCE',
+  FORCE = 'FORCE',
   FIGHT = 'FIGHT',
   SNEAK = 'SNEAK',
   MOVE = 'MOVE',
@@ -28,9 +29,20 @@ export enum RoleSkill {
 
 export type Skill = BasicSkill | RoleSkill;
 
+export const SkillByRole = {
+  [Role.ENFORCER]: RoleSkill.INTIMIDATE as RoleSkill.INTIMIDATE,
+  [Role.GEARHEAD]: RoleSkill.JURY_RIG as RoleSkill.JURY_RIG,
+  [Role.STALKER]: RoleSkill.FIND_THE_PATH as RoleSkill.FIND_THE_PATH,
+  [Role.FIXER]: RoleSkill.MAKE_A_DEAL as RoleSkill.MAKE_A_DEAL,
+  [Role.DOG_HANDLER]: RoleSkill.SIC_THE_DOG as RoleSkill.SIC_THE_DOG,
+  [Role.CHRONICLER]: RoleSkill.INSPIRE as RoleSkill.INSPIRE,
+  [Role.BOSS]: RoleSkill.COMMAND as RoleSkill.COMMAND,
+  [Role.SLAVE]: RoleSkill.SHAKE_IT_OFF as RoleSkill.SHAKE_IT_OFF,
+};
+
 export type BasicSkillsAttributes = {
   [BasicSkill.ENDURE]: Attribute.STRENGTH;
-  [BasicSkill.NFORCE]: Attribute.STRENGTH;
+  [BasicSkill.FORCE]: Attribute.STRENGTH;
   [BasicSkill.FIGHT]: Attribute.STRENGTH;
   [BasicSkill.SNEAK]: Attribute.AGILITY;
   [BasicSkill.MOVE]: Attribute.AGILITY;
