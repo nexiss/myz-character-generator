@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { Role, Skill } from '../../models';
-import { CharacterSkill, RootState } from '../state';
+import { CharacterSkill, Role, Skill } from '../../models';
+import { RootState } from '../state';
 
 export const skillReducers = {
   addSkill: <T extends Role>(

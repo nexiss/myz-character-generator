@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Mutation } from '../../models';
+import { CharacterSheet, Mutation } from '../../models';
 import { removeMutation } from '../../store/store';
 import * as Icon from 'react-bootstrap-icons';
 import { Button } from 'react-bootstrap';
 import MutationTrans from '../../atoms/trans/mutation-trans';
-import { CharacterSheet, RootState } from '../../store/state';
+import { RootState } from '../../store/state';
 
 export const MutationsList = () => {
   const current = useSelector<{ root: RootState }, CharacterSheet>(

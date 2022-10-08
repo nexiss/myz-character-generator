@@ -1,10 +1,10 @@
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Mutation } from '../../models';
+import { CharacterSheet, Mutation } from '../../models';
 import { updateMutation } from '../../store/store';
 import * as Icon from 'react-bootstrap-icons';
 import MutationTrans from '../../atoms/trans/mutation-trans';
-import { CharacterSheet, RootState } from '../../store/state';
+import { RootState } from '../../store/state';
 
 export type AddMutationProps = {
   onAddMutation: (mutation: Mutation) => void;

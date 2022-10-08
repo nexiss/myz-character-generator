@@ -1,10 +1,10 @@
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Skill } from '../../models';
+import { CharacterSheet, Skill } from '../../models';
 import * as Icon from 'react-bootstrap-icons';
-import { CharacterSheet, RootState } from '../../store/state';
 import SkillTrans from '../../atoms/trans/skills-trans';
 import { updateSkill } from '../../store/store';
+import { RootState } from '../../store/state';
 
 export type AddSkillProps = {
   onAddSkill: (skill: Skill) => void;

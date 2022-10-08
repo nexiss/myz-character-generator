@@ -1,5 +1,6 @@
 import { Role } from '../models';
 import { addAttributes, buildBaseInfo } from './store.utils.internal';
+import {} from 'jest/';
 
 describe('buildBaseInfo', () => {
   it('should generate random name when isNameTouched is false', () => {
@@ -15,6 +16,24 @@ describe('buildBaseInfo', () => {
     const result = buildBaseInfo({ name }, { isNameTouched: true });
 
     expect(result.description.name).toEqual(name);
+  });
+
+  it('should return the same role if provided', () => {
+    let role = Role.BOSS;
+    const resultBoss = buildBaseInfo(
+      { name: expect.anything(), role },
+      { ...expect.anything() }
+    );
+
+    expect(resultBoss.role).toEqual(role);
+
+    role = Role.CHRONICLER;
+    const resultChronicler = buildBaseInfo(
+      { name: expect.anything(), role },
+      { ...expect.anything() }
+    );
+
+    expect(resultChronicler.role).toEqual(role);
   });
 });
 

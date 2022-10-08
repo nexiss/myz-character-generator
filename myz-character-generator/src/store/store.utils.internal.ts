@@ -1,12 +1,18 @@
-import { Attribute, Attributes, Mutation, Role } from '../models';
-import { GenerateOptions, PCharacterSheet } from './state';
+import {
+  Attribute,
+  Attributes,
+  Mutation,
+  PCharacterSheet,
+  Role,
+} from '../models';
+import { GenerateOptions } from './state';
 import { getMutations, generateSkillsByRole } from './store.utils';
 
-export const buildBaseInfo = (
-  options: { name: string },
+export const buildBaseInfo = <T extends Role>(
+  options: { name: string; role?: T },
   generateOptions: GenerateOptions
-): PCharacterSheet<Role, 'description'> & PCharacterSheet<Role, 'role'> => ({
-  role: getRandomRole(),
+): PCharacterSheet<T, 'description'> & PCharacterSheet<T, 'role'> => ({
+  role: options.role ?? (getRandomRole() as T),
   description: {
     name:
       generateOptions.isNameTouched && options.name

@@ -2,7 +2,8 @@ import { Form, Row, Col } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useI18n } from '../../i18n/useI18n';
-import { CharacterSheet, RootState } from '../../store/state';
+import { CharacterSheet } from '../../models';
+import { RootState } from '../../store/state';
 import { updateName } from '../../store/store';
 
 export const DescriptionComponent = () => {

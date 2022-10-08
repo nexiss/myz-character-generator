@@ -1,13 +1,15 @@
 import {
   BasicSkill,
+  CharacterSheet,
   Mutation,
+  PCharacterSheet,
   Role,
   RoleSkill,
   Skill,
   SkillByRole,
 } from '../models';
 import { RANDOM, ROLE_OPTION_VALUE } from './data';
-import { CharacterSheet, GenerateOptions } from './state';
+import { GenerateOptions } from './state';
 import {
   addAttributes,
   buildBaseInfo,
@@ -83,17 +85,40 @@ export const generateRandomCurrent = (
   generateOptions: GenerateOptions
 ): CharacterSheet => {
   switch (roleOption) {
+    case Role.ENFORCER:
+    case Role.GEARHEAD:
+    case Role.STALKER:
+    case Role.FIXER:
+    case Role.DOG_HANDLER:
+    case Role.CHRONICLER:
+    case Role.BOSS:
+    case Role.SLAVE:
+      return buildRandom(current, generateOptions, roleOption);
     case RANDOM:
     default:
-      return buildFullRandom(current, generateOptions);
+      return buildRandom(current, generateOptions);
   }
 };
 
-const buildFullRandom = <U extends Pick<CharacterSheet, 'description'>>(
+const buildRandom = <
+  T extends Role,
+  U extends Pick<CharacterSheet, 'description'>
+>(
   current: U,
-  generateOptions: GenerateOptions
-): CharacterSheet => {
-  const c1 = buildBaseInfo({ name: current.description.name }, generateOptions);
+  generateOptions: GenerateOptions,
+  role?: T
+): CharacterSheet<T> => {
+  const c1 = buildBaseInfo(
+    { name: current.description.name, role },
+    generateOptions
+  );
+
+  return buildCommonRandom(c1);
+};
+
+const buildCommonRandom = <T extends Role>(
+  c1: PCharacterSheet<T, 'description'> & PCharacterSheet<T, 'role'>
+) => {
   const c2 = addAttributes(c1);
   const c3 = addMutations(c2);
   const c4 = addSkills(c3);

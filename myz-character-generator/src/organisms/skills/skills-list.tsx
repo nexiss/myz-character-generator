@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Skill } from '../../models';
+import { CharacterSheet, Skill } from '../../models';
 import { removeSkill } from '../../store/store';
 import * as Icon from 'react-bootstrap-icons';
 import { Button } from 'react-bootstrap';
-import { CharacterSheet, RootState } from '../../store/state';
+import { RootState } from '../../store/state';
 import SkillTrans from '../../atoms/trans/skills-trans';
 
 export const SkillsList = () => {

@@ -37,7 +37,24 @@ const initialState: RootState = {
     talents: [],
     gear: {},
   },
-  characters: [],
+  characters: [
+    {
+      description: {
+        name: '',
+      },
+      role: Role.ENFORCER,
+      attributes: {
+        strength: 0,
+        agility: 0,
+        wits: 0,
+        empathy: 0,
+      },
+      mutations: buildInitialMutations(),
+      skills: buildInitialSkills(),
+      talents: [],
+      gear: {},
+    },
+  ],
   data: {
     roles,
     mutations: getMutations(),
