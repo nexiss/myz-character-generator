@@ -3,7 +3,7 @@ import { addSkill } from '../../store/store';
 import AddSkillComponent from './add-skill';
 import SkillsList from './skills-list';
 
-export const Skills = () => {
+export const SkillsComponent = () => {
   const dispatch = useDispatch();
 
   return (
@@ -22,4 +22,4 @@ export const Skills = () => {
   );
 };
 
-export default Skills;
+export default SkillsComponent;

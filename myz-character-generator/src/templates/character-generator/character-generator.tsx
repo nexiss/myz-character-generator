@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import CharacterForm from '../../organisms/character-form/character-form';
 import CharactersList from '../../organisms/characters-list/characters-list';
-import './character-generator.css';
+import './character-generator.scss';
 
 class CharacterGenerator extends React.Component {
   render(): React.ReactNode {

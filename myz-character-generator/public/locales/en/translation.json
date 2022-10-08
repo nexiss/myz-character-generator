@@ -144,6 +144,14 @@
             "title": "Speedster"
         }
     },
+    "sections": {
+        "description": "Description",
+        "attributes": "Attributes",
+        "mutations": "Mutations",
+        "skills": "Skills",
+        "talents": "Talents",
+        "gear": "Gear"
+    },
     "others": {
         "characters": "Characters",
         "generate": "Generate",

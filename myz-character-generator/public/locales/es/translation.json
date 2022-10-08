@@ -144,6 +144,14 @@
             "title": "Velocista"
         }
     },
+    "sections": {
+        "description": "Descripción",
+        "attributes": "Atributos",
+        "mutations": "Mutaciones",
+        "skills": "Habilidades",
+        "talents": "Talentos",
+        "gear": "Equipo"
+    },
     "others": {
         "characters": "Personajes",
         "generate": "Generar",

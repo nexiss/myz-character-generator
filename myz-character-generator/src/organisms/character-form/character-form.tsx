@@ -8,10 +8,10 @@ import { RootState } from '../../store/state';
 import { generate, updateCharacter, updateRole } from '../../store/store';
 import AttributesComponent from '../attributes/attributes';
 import DescriptionComponent from '../description/description';
-import Mutations from '../mutations/mutations';
-import Skills from '../skills/skills';
+import MutationsComponent from '../mutations/mutations';
+import SkillsComponent from '../skills/skills';
 
-import './character-form.css';
+import './character-form.scss';
 
 export const CharacterForm = () => {
   const selectedRole = useSelector<{ root: RootState }, ROLE_OPTION_VALUE>(
@@ -63,23 +63,39 @@ export const CharacterForm = () => {
         </Col>
       </Row>
       <Row className="mb-3">
-        <Col md={6} className="description-container">
+        <Col md={6} className="container__description">
+          <h5 className="container__header">
+            <Trans i18nKey="sections.description">Description</Trans>
+          </h5>
           <DescriptionComponent></DescriptionComponent>
         </Col>
-        <Col md={6} className="attributes-container">
+        <Col md={6} className="container__attributes">
+          <h5 className="container__header">
+            <Trans i18nKey="sections.attributes">Attributes</Trans>
+          </h5>
           <AttributesComponent></AttributesComponent>
         </Col>
-        <Col md={6} className="mutations-container">
-          <Mutations></Mutations>
+        <Col md={6} className="container__mutations">
+          <h5 className="container__header">
+            <Trans i18nKey="sections.mutations">Mutations</Trans>
+          </h5>
+          <MutationsComponent></MutationsComponent>
         </Col>
-        <Col md={6} className="skills-container">
-          <Skills></Skills>
+        <Col md={6} className="container__skills">
+          <h5 className="container__header">
+            <Trans i18nKey="sections.skills">Skills</Trans>
+          </h5>
+          <SkillsComponent></SkillsComponent>
         </Col>
-        <Col md={6} className="talents-container">
-          Talents
+        <Col md={6} className="container__talents">
+          <h5 className="container__header">
+            <Trans i18nKey="sections.talents">Talents</Trans>
+          </h5>
         </Col>
-        <Col md={6} className="gear-container">
-          Gear
+        <Col md={6} className="container__gear">
+          <h5 className="container__header">
+            <Trans i18nKey="sections.gear">Gear</Trans>
+          </h5>
         </Col>
       </Row>
     </Form>

@@ -3,7 +3,7 @@ import { addMutation } from '../../store/store';
 import AddMutationComponent from './add-mutation';
 import MutationsList from './mutations-list';
 
-export const Mutations = () => {
+export const MutationsComponent = () => {
   const dispatch = useDispatch();
 
   return (
@@ -22,4 +22,4 @@ export const Mutations = () => {
   );
 };
 
-export default Mutations;
+export default MutationsComponent;

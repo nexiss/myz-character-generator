@@ -1,0 +1,36 @@
+.container {
+    &__header {
+        text-align: center;
+    }
+
+    &__description {
+        background-color: lightskyblue;
+    }
+
+    &__attributes {
+        background-color: lightblue;
+    }
+
+    &__mutations {
+        background-color: lightcoral;
+    }
+    
+    &__skills {
+        background-color: lightpink;
+    }
+    
+    &__talents {
+        background-color: lightgoldenrodyellow;
+    } 
+    
+    &__gear {
+        background-color: lightgreen;
+    }
+}
+
+@media (max-width: 767px) {
+    .role-selector-column {
+        margin-bottom: 0.5rem;
+    }
+  }
+
