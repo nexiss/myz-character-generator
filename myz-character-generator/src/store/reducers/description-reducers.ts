@@ -7,15 +7,15 @@ export const descriptionReducers = {
     state: RootState,
     action: PayloadAction<{ name: string; isNameTouched?: boolean }>
   ) => {
-    state.current.description.name = action.payload.name;
+    state.data.current.description.name = action.payload.name;
     if (action.payload.isNameTouched) {
-      state.generateOptions.isNameTouched = !!action.payload.isNameTouched;
+      state.ui.generateOptions.isNameTouched = !!action.payload.isNameTouched;
     }
   },
   updateRole: (
     state: RootState,
     action: PayloadAction<{ role: ROLE_OPTION_VALUE }>
   ) => {
-    state.selectedRole = action.payload.role;
+    state.ui.selectedRole = action.payload.role;
   },
 };

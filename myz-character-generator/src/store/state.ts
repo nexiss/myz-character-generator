@@ -6,15 +6,19 @@ export type GenerateOptions = {
 };
 
 export type RootState = {
-  selectedRole: ROLE_OPTION_VALUE;
-  selectedMutation: Mutation;
-  selectedSkill: Skill;
-  generateOptions: GenerateOptions;
-  current: CharacterSheet;
-  data: {
-    roles: ROLE_OPTION_VALUE[];
-    mutations: Mutation[];
-    skills: Skill[];
+  ui: {
+    selectedRole: ROLE_OPTION_VALUE;
+    selectedMutation: Mutation;
+    selectedSkill: Skill;
+    generateOptions: GenerateOptions;
   };
-  characters: CharacterSheet[];
+  data: {
+    current: CharacterSheet;
+    models: {
+      roles: ROLE_OPTION_VALUE[];
+      mutations: Mutation[];
+      skills: Skill[];
+    };
+    characters: CharacterSheet[];
+  };
 };

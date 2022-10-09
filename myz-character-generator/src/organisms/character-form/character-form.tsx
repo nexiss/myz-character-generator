@@ -1,10 +1,10 @@
 import { Col, Form, Row } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import RoleTrans from '../../atoms/trans/role-trans';
 import ActionsBar from '../../molecules/actions-bar/actions-bar';
 import { ROLE_OPTION_VALUE } from '../../store/data';
-import { RootState } from '../../store/state';
+import StoreSelectors from '../../store/selectors';
 import { generate, updateCharacter, updateRole } from '../../store/store';
 import AttributesComponent from '../attributes/attributes';
 import DescriptionComponent from '../description/description';
@@ -14,13 +14,7 @@ import SkillsComponent from '../skills/skills';
 import './character-form.scss';
 
 export const CharacterForm = () => {
-  const selectedRole = useSelector<{ root: RootState }, ROLE_OPTION_VALUE>(
-    (state) => state.root.selectedRole
-  );
-
-  const roles = useSelector<{ root: RootState }, ROLE_OPTION_VALUE[]>(
-    (state) => state.root.data.roles
-  );
+  const { roles, selectedRole } = StoreSelectors();
 
   const dispatch = useDispatch();
 

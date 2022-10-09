@@ -1,10 +1,10 @@
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { CharacterSheet, Mutation } from '../../models';
+import { useDispatch } from 'react-redux';
+import { Mutation } from '../../models';
 import { updateMutation } from '../../store/store';
 import * as Icon from 'react-bootstrap-icons';
 import MutationTrans from '../../atoms/trans/mutation-trans';
-import { RootState } from '../../store/state';
+import StoreSelectors from '../../store/selectors';
 
 export type AddMutationProps = {
   onAddMutation: (mutation: Mutation) => void;
@@ -13,17 +13,7 @@ export type AddMutationProps = {
 export const AddMutationComponent = (props: AddMutationProps) => {
   const { onAddMutation } = props;
 
-  const selectedMutation = useSelector<{ root: RootState }, Mutation>(
-    (state) => state.root.selectedMutation
-  );
-
-  const current = useSelector<{ root: RootState }, CharacterSheet>(
-    (state) => state.root.current
-  );
-
-  const mutations = useSelector<{ root: RootState }, Mutation[]>(
-    (state) => state.root.data.mutations
-  );
+  const { selectedMutation, current, mutations } = StoreSelectors();
 
   const dispatch = useDispatch();
 

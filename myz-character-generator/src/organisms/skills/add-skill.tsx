@@ -1,10 +1,10 @@
 import { Form, Row, Col, Stack, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { CharacterSheet, Skill } from '../../models';
+import { useDispatch } from 'react-redux';
+import { Skill } from '../../models';
 import * as Icon from 'react-bootstrap-icons';
 import SkillTrans from '../../atoms/trans/skills-trans';
 import { updateSkill } from '../../store/store';
-import { RootState } from '../../store/state';
+import StoreSelectors from '../../store/selectors';
 
 export type AddSkillProps = {
   onAddSkill: (skill: Skill) => void;
@@ -13,17 +13,7 @@ export type AddSkillProps = {
 export const AddSkillComponent = (props: AddSkillProps) => {
   const { onAddSkill } = props;
 
-  const selectedSkill = useSelector<{ root: RootState }, Skill>(
-    (state) => state.root.selectedSkill
-  );
-
-  const current = useSelector<{ root: RootState }, CharacterSheet>(
-    (state) => state.root.current
-  );
-
-  const skills = useSelector<{ root: RootState }, Skill[]>(
-    (state) => state.root.data.skills
-  );
+  const { selectedSkill, current, skills } = StoreSelectors();
 
   const dispatch = useDispatch();
 

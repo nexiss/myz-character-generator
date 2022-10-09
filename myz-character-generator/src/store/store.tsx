@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Attributes, BasicSkill, Mutation, Role } from '../models';
-import { RANDOM, roles } from './data';
+import { RANDOM, selectableRoles } from './data';
 import { characterReducers } from './reducers/character-reducer';
 import { descriptionReducers } from './reducers/description-reducers';
 import { mutationReducers } from './reducers/mutation-reducer';
@@ -15,30 +15,16 @@ import {
 } from './store.utils';
 
 const initialState: RootState = {
-  selectedRole: RANDOM,
-  selectedMutation: Mutation.INSECT_WINGS,
-  selectedSkill: BasicSkill.COMPREHEND,
-  generateOptions: {
-    isNameTouched: false,
-  },
-  current: {
-    description: {
-      name: '',
+  ui: {
+    selectedRole: RANDOM,
+    selectedMutation: Mutation.INSECT_WINGS,
+    selectedSkill: BasicSkill.COMPREHEND,
+    generateOptions: {
+      isNameTouched: false,
     },
-    role: Role.ENFORCER,
-    attributes: {
-      strength: 0,
-      agility: 0,
-      wits: 0,
-      empathy: 0,
-    },
-    mutations: buildInitialMutations(),
-    skills: buildInitialSkills(),
-    talents: [],
-    gear: {},
   },
-  characters: [
-    {
+  data: {
+    current: {
       description: {
         name: '',
       },
@@ -54,11 +40,29 @@ const initialState: RootState = {
       talents: [],
       gear: {},
     },
-  ],
-  data: {
-    roles,
-    mutations: getMutations(),
-    skills: getSkills(),
+    characters: [
+      {
+        description: {
+          name: '',
+        },
+        role: Role.ENFORCER,
+        attributes: {
+          strength: 0,
+          agility: 0,
+          wits: 0,
+          empathy: 0,
+        },
+        mutations: buildInitialMutations(),
+        skills: buildInitialSkills(),
+        talents: [],
+        gear: {},
+      },
+    ],
+    models: {
+      roles: selectableRoles,
+      mutations: getMutations(),
+      skills: getSkills(),
+    },
   },
 };
 
@@ -71,17 +75,17 @@ export const rootSlice = createSlice({
     ...descriptionReducers,
     ...characterReducers,
     generate: (state) => {
-      state.current = generateRandomCurrent(
-        state.current,
-        state.selectedRole,
-        state.generateOptions
+      state.data.current = generateRandomCurrent(
+        state.data.current,
+        state.ui.selectedRole,
+        state.ui.generateOptions
       );
     },
     updateAttributes: (
       state,
       action: PayloadAction<{ attributes: Attributes }>
     ) => {
-      state.current.attributes = action.payload.attributes;
+      state.data.current.attributes = action.payload.attributes;
     },
   },
 });

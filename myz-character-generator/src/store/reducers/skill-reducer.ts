@@ -7,12 +7,12 @@ export const skillReducers = {
     state: RootState,
     action: PayloadAction<{ skill: CharacterSkill<T> }>
   ) => {
-    state.current.skills[action.payload.skill] = true;
+    state.data.current.skills[action.payload.skill] = true;
   },
   removeSkill: (state: RootState, action: PayloadAction<{ skill: Skill }>) => {
-    state.current.skills[action.payload.skill] = false;
+    state.data.current.skills[action.payload.skill] = false;
   },
   updateSkill: (state: RootState, action: PayloadAction<{ skill: Skill }>) => {
-    state.selectedSkill = action.payload.skill;
+    state.ui.selectedSkill = action.payload.skill;
   },
 };

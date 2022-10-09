@@ -1,15 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { CharacterSheet, Skill } from '../../models';
+import { useDispatch } from 'react-redux';
+import { Skill } from '../../models';
 import { removeSkill } from '../../store/store';
 import * as Icon from 'react-bootstrap-icons';
 import { Button } from 'react-bootstrap';
-import { RootState } from '../../store/state';
 import SkillTrans from '../../atoms/trans/skills-trans';
+import StoreSelectors from '../../store/selectors';
 
 export const SkillsList = () => {
-  const current = useSelector<{ root: RootState }, CharacterSheet>(
-    (state) => state.root.current
-  );
+  const { current } = StoreSelectors();
 
   const dispatch = useDispatch();
 

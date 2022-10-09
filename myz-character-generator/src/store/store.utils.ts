@@ -6,9 +6,8 @@ import {
   Role,
   RoleSkill,
   Skill,
-  SkillByRole,
 } from '../models';
-import { RANDOM, ROLE_OPTION_VALUE } from './data';
+import { RANDOM, ROLE_OPTION_VALUE, SkillByRole } from './data';
 import { GenerateOptions } from './state';
 import {
   addAttributes,
@@ -25,7 +24,7 @@ export const getMutations = (): Mutation[] => {
 };
 
 export const generateSkillsByRole = <T extends Role>(
-  role?: T
+  role: T
 ): Record<Skill, boolean> => {
   const basicSkills = Object.values(BasicSkill);
   const skills = getSkills();

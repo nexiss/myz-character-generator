@@ -1,7 +1,8 @@
+import { SkillByRole } from '../store/data';
 import { Attributes } from './attributes';
 import { Mutation } from './mutation';
 import { Role } from './role';
-import { BasicSkill, SkillByRole } from './skill';
+import { BasicSkill } from './skill';
 import { Talent } from './talent';
 
 export type CharacterSheet<T extends Role = Role> = {

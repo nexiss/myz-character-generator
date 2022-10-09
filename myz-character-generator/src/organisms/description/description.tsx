@@ -1,15 +1,12 @@
 import { Form, Row, Col } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useI18n } from '../../i18n/useI18n';
-import { CharacterSheet } from '../../models';
-import { RootState } from '../../store/state';
+import StoreSelectors from '../../store/selectors';
 import { updateName } from '../../store/store';
 
 export const DescriptionComponent = () => {
-  const current = useSelector<{ root: RootState }, CharacterSheet>(
-    (state) => state.root.current
-  );
+  const { current } = StoreSelectors();
 
   const dispatch = useDispatch();
 

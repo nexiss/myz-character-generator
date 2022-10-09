@@ -7,18 +7,18 @@ export const mutationReducers = {
     state: RootState,
     action: PayloadAction<{ mutation: Mutation }>
   ) => {
-    state.current.mutations[action.payload.mutation] = true;
+    state.data.current.mutations[action.payload.mutation] = true;
   },
   removeMutation: (
     state: RootState,
     action: PayloadAction<{ mutation: Mutation }>
   ) => {
-    state.current.mutations[action.payload.mutation] = false;
+    state.data.current.mutations[action.payload.mutation] = false;
   },
   updateMutation: (
     state: RootState,
     action: PayloadAction<{ mutation: Mutation }>
   ) => {
-    state.selectedMutation = action.payload.mutation;
+    state.ui.selectedMutation = action.payload.mutation;
   },
 };

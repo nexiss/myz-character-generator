@@ -1,14 +1,11 @@
 import { Row, ThemeProvider } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import './App.css';
-import { RootState } from './store/state';
+import StoreSelectors from './store/selectors';
 import CharacterGenerator from './templates/character-generator/character-generator';
 
 function App() {
-  const root = useSelector<{ root: RootState }, RootState>(
-    (state) => state.root
-  );
+  const { root } = StoreSelectors();
 
   return (
     <ThemeProvider
