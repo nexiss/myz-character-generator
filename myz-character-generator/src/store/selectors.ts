@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { CharacterSheet, Mutation, Skill } from '../models';
+import { CharacterSheet, Mutation, Skill, Talent } from '../models';
 import { ROLE_OPTION_VALUE } from './data';
 import { RootState } from './state';
 
@@ -24,6 +24,10 @@ const StoreSelectors = () => {
     (state) => state.root.data.models.skills
   );
 
+  const talents = useSelector<{ root: RootState }, Talent[]>(
+    (state) => state.root.data.models.talents
+  );
+
   const selectedRole = useSelector<{ root: RootState }, ROLE_OPTION_VALUE>(
     (state) => state.root.ui.selectedRole
   );
@@ -36,15 +40,21 @@ const StoreSelectors = () => {
     (state) => state.root.ui.selectedSkill
   );
 
+  const selectedTalent = useSelector<{ root: RootState }, Talent>(
+    (state) => state.root.ui.selectedTalent
+  );
+
   return {
     current,
     root,
     selectedRole,
     selectedMutation,
     selectedSkill,
+    selectedTalent,
     roles,
-    skills,
     mutations,
+    skills,
+    talents,
   };
 };
 

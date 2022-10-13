@@ -1,4 +1,4 @@
-import { buildInitialMutations } from './store.utils';
+import { buildInitialMutations } from './store.utils.mutations';
 
 describe('buildInitialMutations', () => {
   it('should return an object when all values are false', () => {

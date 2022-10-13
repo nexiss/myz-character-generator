@@ -4,9 +4,11 @@ import {
   Mutation,
   PCharacterSheet,
   Role,
-} from '../models';
-import { GenerateOptions } from './state';
-import { getMutations, generateSkillsByRole } from './store.utils';
+} from '../../models';
+import { GenerateOptions } from '.././state';
+import { getMutations } from './store.utils.mutations';
+import { generateSkillsByRole } from './store.utils.skills';
+import { generateTalentsByRole } from './store.utils.talents';
 
 export const buildBaseInfo = <T extends Role>(
   options: { name: string; role?: T },
@@ -64,12 +66,19 @@ export const addSkills = <T extends Role, U extends PCharacterSheet<T, 'role'>>(
   };
 };
 
-export const addTalents = <T extends {}>(
-  pickedCharacterSheet: T
-): T & PCharacterSheet<Role, 'talents'> => ({
-  ...pickedCharacterSheet,
-  talents: [],
-});
+export const addTalents = <
+  T extends Role,
+  U extends PCharacterSheet<T, 'role'>
+>(
+  pickedCharacterSheet: U
+): U & PCharacterSheet<U['role'], 'talents'> => {
+  const talents = generateTalentsByRole(pickedCharacterSheet.role);
+
+  return {
+    ...pickedCharacterSheet,
+    talents,
+  };
+};
 
 export const addGear = <T extends {}>(
   pickedCharacterSheet: T

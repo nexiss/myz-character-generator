@@ -144,6 +144,164 @@
             "title": "Speedster"
         }
     },
+    "talents": {
+        "ADMIRER": {
+            "title": "Admirer"
+        },
+        "ARCHEOLOGIST": {
+            "title": "Archeologist"
+        },
+        "ASSASIN": {
+            "title": "Assasin"
+        },
+        "BAD_OMENS": {
+            "title": "Bad omens"
+        },
+        "BODYGUARD": {
+            "title": "Bodyguard"
+        },
+        "BUTCHER": {
+            "title": "Butcher"
+        },
+        "COMBAT_VETERAN": {
+            "title": "Combat veteran"
+        },
+        "COOL_HEAD": {
+            "title": "Cool head"
+        },
+        "COUNSELOR": {
+            "title": "Counselor"
+        },
+        "COWARD": {
+            "title": "Coward"
+        },
+        "FAST_DRAW": {
+            "title": "Fast draw"
+        },
+        "FLYWEIGHT": {
+            "title": "Flyweight"
+        },
+        "GADGETEER": {
+            "title": "Gadgeteer"
+        },
+        "GOOD_FOOTWORK": {
+            "title": "Good footwork"
+        },
+        "HARD_HITTER": {
+            "title": "Hard hitter"
+        },
+        "JACK_OF_ALL_TRADES": {
+            "title": "Jack of all trades"
+        },
+        "LIGHT_EATER": {
+            "title": "Light eater"
+        },
+        "LONER": {
+            "title": "LONER"
+        },
+        "NEVER_SURRENDER": {
+            "title": "Never surrender"
+        },
+        "PACK_MULE": {
+            "title": "Pack mule"
+        },
+        "PERSONAL_ARITHMETIC": {
+            "title": "Personal arithmetic"
+        },
+        "SHARPSHOOTER": {
+            "title": "Sharpshooter"
+        },
+        "SLEEPLESS": {
+            "title": "Sleepless"
+        },
+        "STOIC": {
+            "title": "Stoic"
+        },
+        "THERAPIST": {
+            "title": "Therapist"
+        },
+        "WEAPON_SPECIALIST": {
+            "title": "Weapon specialist"
+        },
+        "WORKHORSE": {
+            "title": "Workhorse"
+        },
+        "ZONE_COOK": {
+            "title": "Zone cook"
+        },
+        "BARGE_THROUGH": {
+            "title": "Barge through"
+        },
+        "SUCKER_PUNCH": {
+            "title": "Sucker punch"
+        },
+        "MEAN_STREAK": {
+            "title": "Mean streak"
+        },
+        "TINKERER": {
+            "title": "Tinkerer"
+        },
+        "MOTORHEAD": {
+            "title": "Motorhead"
+        },
+        "INVENTOR": {
+            "title": "Inventor"
+        },
+        "SCAVENGER": {
+            "title": "Scavenger"
+        },
+        "ROT_FINDER": {
+            "title": "Rot finder"
+        },
+        "MONSTER_HUNTER": {
+            "title": "Monster hunter"
+        },
+        "VICIOUS_CREEP": {
+            "title": "Vicious creep"
+        },
+        "WHEELER_DEALER": {
+            "title": "Wheeler dealer"
+        },
+        "JUICY_INFO": {
+            "title": "Juicy info"
+        },
+        "MUTANTS_BEST_FRIEND": {
+            "title": "Mutant's best friend"
+        },
+        "FIGHT_DOG": {
+            "title": "Fight dog"
+        },
+        "BLOODHOUND": {
+            "title": "Bloodhound"
+        },
+        "AGITATOR": {
+            "title": "Agitator"
+        },
+        "PERFORMER": {
+            "title": "Performer"
+        },
+        "BONESAW": {
+            "title": "Bonesaw"
+        },
+        "RACKETEER": {
+            "title": "Racketeer"
+        },
+        "COMMANDER": {
+            "title": "Commander"
+        },
+        "GUNSLINGERS": {
+            "title": "Gunslingers"
+        },
+        "CYNIC": {
+            "title": "Cynic"
+        },
+        "REBEL": {
+            "title": "Rebel"
+        },
+        "RESILIENT": {
+            "title": "Resilient"
+        }
+    },
     "sections": {
         "description": "Description",
         "attributes": "Attributes",

@@ -8,8 +8,9 @@ import StoreSelectors from '../../store/selectors';
 import { generate, updateCharacter, updateRole } from '../../store/store';
 import AttributesComponent from '../attributes/attributes';
 import DescriptionComponent from '../description/description';
-import MutationsComponent from '../mutations/mutations';
-import SkillsComponent from '../skills/skills';
+import MutationsComponent from '../mutations/mutations.component';
+import SkillsComponent from '../skills/skills.component';
+import TalentsComponent from '../talents/talents.component';
 
 import './character-form.scss';
 
@@ -85,6 +86,7 @@ export const CharacterForm = () => {
           <h5 className="container__header">
             <Trans i18nKey="sections.talents">Talents</Trans>
           </h5>
+          <TalentsComponent></TalentsComponent>
         </Col>
         <Col md={6} className="container__gear">
           <h5 className="container__header">

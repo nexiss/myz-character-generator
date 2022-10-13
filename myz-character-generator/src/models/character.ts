@@ -3,7 +3,7 @@ import { Attributes } from './attributes';
 import { Mutation } from './mutation';
 import { Role } from './role';
 import { BasicSkill } from './skill';
-import { Talent } from './talent';
+import { CharacterTalent } from './talent';
 
 export type CharacterSheet<T extends Role = Role> = {
   description: {
@@ -13,7 +13,7 @@ export type CharacterSheet<T extends Role = Role> = {
   attributes: Attributes;
   mutations: Record<Mutation, boolean>;
   skills: Record<CharacterSkill<T>, boolean>;
-  talents: Talent[];
+  talents: Record<CharacterTalent<T>, boolean>;
   gear: any;
 };
 

@@ -1,4 +1,4 @@
-import { Role } from '../models';
+import { Role } from '../../models';
 import { addAttributes, buildBaseInfo } from './store.utils.internal';
 import {} from 'jest/';
 

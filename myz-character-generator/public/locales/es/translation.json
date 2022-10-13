@@ -144,6 +144,164 @@
             "title": "Velocista"
         }
     },
+    "talents": {
+        "ADMIRER": {
+            "title": "Admirador"
+        },
+        "ARCHEOLOGIST": {
+            "title": "Arqueólogo"
+        },
+        "ASSASIN": {
+            "title": "Asesino"
+        },
+        "BAD_OMENS": {
+            "title": "Malos presagios"
+        },
+        "BODYGUARD": {
+            "title": "Guardaespaldas"
+        },
+        "BUTCHER": {
+            "title": "Carnicero"
+        },
+        "COMBAT_VETERAN": {
+            "title": "Combatiente veterano"
+        },
+        "COOL_HEAD": {
+            "title": "Mantener la calma"
+        },
+        "COUNSELOR": {
+            "title": "Consejero"
+        },
+        "COWARD": {
+            "title": "Cobarde"
+        },
+        "FAST_DRAW": {
+            "title": "Desenfundar rápido"
+        },
+        "FLYWEIGHT": {
+            "title": "Peso pluma"
+        },
+        "GADGETEER": {
+            "title": "Experto en aparatos"
+        },
+        "GOOD_FOOTWORK": {
+            "title": "Buen juego de piernas"
+        },
+        "HARD_HITTER": {
+            "title": "Peso pesado"
+        },
+        "JACK_OF_ALL_TRADES": {
+            "title": "Aprendiz de todo"
+        },
+        "LIGHT_EATER": {
+            "title": "Frugal"
+        },
+        "LONER": {
+            "title": "Solitario"
+        },
+        "NEVER_SURRENDER": {
+            "title": "No te rindas nunca"
+        },
+        "PACK_MULE": {
+            "title": "Mula de carga"
+        },
+        "PERSONAL_ARITHMETIC": {
+            "title": "Aritmética personal"
+        },
+        "SHARPSHOOTER": {
+            "title": "Tirador de primera"
+        },
+        "SLEEPLESS": {
+            "title": "Resistencia al sueño"
+        },
+        "STOIC": {
+            "title": "Estoico"
+        },
+        "THERAPIST": {
+            "title": "Terapeuta"
+        },
+        "WEAPON_SPECIALIST": {
+            "title": "Especialista en armas"
+        },
+        "WORKHORSE": {
+            "title": "Trabajador"
+        },
+        "ZONE_COOK": {
+            "title": "Cocinero de la zona"
+        },
+        "BARGE_THROUGH": {
+            "title": "Abrirse paso"
+        },
+        "SUCKER_PUNCH": {
+            "title": "Golpe bajo"
+        },
+        "MEAN_STREAK": {
+            "title": "Vena mezquina"
+        },
+        "TINKERER": {
+            "title": "Chatarrero"
+        },
+        "MOTORHEAD": {
+            "title": "Experto en motores"
+        },
+        "INVENTOR": {
+            "title": "Inventor"
+        },
+        "SCAVENGER": {
+            "title": "Carroñero"
+        },
+        "ROT_FINDER": {
+            "title": "Encontrar descomposición"
+        },
+        "MONSTER_HUNTER": {
+            "title": "Cazador de monstruos"
+        },
+        "VICIOUS_CREEP": {
+            "title": "Adulador mezquino"
+        },
+        "WHEELER_DEALER": {
+            "title": "Embaucador"
+        },
+        "JUICY_INFO": {
+            "title": "Información jugosa"
+        },
+        "MUTANTS_BEST_FRIEND": {
+            "title": "El mejor amigo del mutante"
+        },
+        "FIGHT_DOG": {
+            "title": "Pelea de perros"
+        },
+        "BLOODHOUND": {
+            "title": "Sabueso"
+        },
+        "AGITATOR": {
+            "title": "Agitator"
+        },
+        "PERFORMER": {
+            "title": "Cuentacuentos"
+        },
+        "BONESAW": {
+            "title": "Serrahuesos"
+        },
+        "RACKETEER": {
+            "title": "Estafador"
+        },
+        "COMMANDER": {
+            "title": "Commander"
+        },
+        "GUNSLINGERS": {
+            "title": "Pistoleros"
+        },
+        "CYNIC": {
+            "title": "Cínico"
+        },
+        "REBEL": {
+            "title": "Rebelde"
+        },
+        "RESILIENT": {
+            "title": "Resistente"
+        }
+    },
     "sections": {
         "description": "Descripción",
         "attributes": "Atributos",
@@ -163,8 +321,8 @@
     },
     "roles": {
         "ENFORCER": "Matón",
-        "1": "Mecánico",
-        "GEARHEAD": "Merodeador",
+        "GEARHEAD": "Mecánico",
+        "STALKER": "Merodeador",
         "FIXER": "Arreglador",
         "DOG_HANDLER": "Adiestrador de perros",
         "CHRONICLER": "Cronista",
