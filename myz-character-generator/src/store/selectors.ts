@@ -1,5 +1,11 @@
 import { useSelector } from 'react-redux';
-import { CharacterSheet, Mutation, Skill, Talent } from '../models';
+import {
+  CharacterSheet,
+  Mutation,
+  SavedCharacterSheet,
+  Skill,
+  Talent,
+} from '../models';
 import { ROLE_OPTION_VALUE } from './data';
 import { RootState } from './state';
 
@@ -28,6 +34,10 @@ const StoreSelectors = () => {
     (state) => state.root.data.models.talents
   );
 
+  const characters = useSelector<{ root: RootState }, SavedCharacterSheet[]>(
+    (state) => state.root.data.characters
+  );
+
   const selectedRole = useSelector<{ root: RootState }, ROLE_OPTION_VALUE>(
     (state) => state.root.ui.selectedRole
   );
@@ -45,6 +55,7 @@ const StoreSelectors = () => {
   );
 
   return {
+    characters,
     current,
     root,
     selectedRole,

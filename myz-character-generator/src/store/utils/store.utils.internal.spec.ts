@@ -5,7 +5,10 @@ import {} from 'jest/';
 describe('buildBaseInfo', () => {
   it('should generate random name when isNameTouched is false', () => {
     const name = 'Previous random name';
-    const result = buildBaseInfo({ name }, { isNameTouched: false });
+    const result = buildBaseInfo(
+      { id: expect.anything(), name },
+      { isNameTouched: false }
+    );
 
     expect(result.description.name.length).toBeGreaterThan(0);
     expect(result.description.name).not.toEqual(name);
@@ -13,7 +16,10 @@ describe('buildBaseInfo', () => {
 
   it('should keep same name when isNameTouched is false', () => {
     const name = 'Name modified by user';
-    const result = buildBaseInfo({ name }, { isNameTouched: true });
+    const result = buildBaseInfo(
+      { id: expect.anything(), name },
+      { isNameTouched: true }
+    );
 
     expect(result.description.name).toEqual(name);
   });
@@ -21,7 +27,7 @@ describe('buildBaseInfo', () => {
   it('should return the same role if provided', () => {
     let role = Role.BOSS;
     const resultBoss = buildBaseInfo(
-      { name: expect.anything(), role },
+      { id: expect.anything(), name: expect.anything(), role },
       { ...expect.anything() }
     );
 
@@ -29,7 +35,7 @@ describe('buildBaseInfo', () => {
 
     role = Role.CHRONICLER;
     const resultChronicler = buildBaseInfo(
-      { name: expect.anything(), role },
+      { id: expect.anything(), name: expect.anything(), role },
       { ...expect.anything() }
     );
 

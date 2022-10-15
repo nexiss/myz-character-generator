@@ -1,4 +1,10 @@
-import { CharacterSheet, Mutation, Skill, Talent } from '../models';
+import {
+  CharacterSheet,
+  Mutation,
+  SavedCharacterSheet,
+  Skill,
+  Talent,
+} from '../models';
 import { ROLE_OPTION_VALUE } from './data';
 
 export type GenerateOptions = {
@@ -21,6 +27,6 @@ export type RootState = {
       skills: Skill[];
       talents: Talent[];
     };
-    characters: CharacterSheet[];
+    characters: SavedCharacterSheet[];
   };
 };

@@ -314,7 +314,8 @@
         "characters": "Characters",
         "generate": "Generate",
         "name": "Name",
-        "role": "Role"
+        "role": "Role",
+        "edit": "Edit"
     },
     "role-selector": {
         "hint": "You can select an specific role or it will be randomly chosen."

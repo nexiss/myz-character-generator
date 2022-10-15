@@ -1,3 +1,4 @@
+import uuid from 'react-uuid';
 import { CharacterSheet, PCharacterSheet, Role } from '../../models';
 import { RANDOM, ROLE_OPTION_VALUE } from '.././data';
 import { GenerateOptions } from '.././state';
@@ -93,7 +94,7 @@ const buildRandom = <
   role?: T
 ): CharacterSheet<T> => {
   const cs1 = buildBaseInfo(
-    { name: current.description.name, role },
+    { name: current.description.name, role, id: uuid() },
     generateOptions
   );
 
@@ -101,7 +102,7 @@ const buildRandom = <
 };
 
 const buildCommonRandom = <T extends Role>(
-  cs1: PCharacterSheet<T, 'description'> & PCharacterSheet<T, 'role'>
+  cs1: PCharacterSheet<T, 'description' | 'role' | 'id'>
 ) => {
   const cs2 = addAttributes(cs1);
   const cs3 = addMutations(cs2);

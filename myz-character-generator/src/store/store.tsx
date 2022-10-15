@@ -33,6 +33,7 @@ const initialState: RootState = {
   },
   data: {
     current: {
+      id: undefined,
       description: {
         name: '',
       },
@@ -83,7 +84,6 @@ export const rootSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const {
   addSkill,
   addMutation,
@@ -92,7 +92,7 @@ export const {
   removeSkill,
   removeMutation,
   removeTalent,
-  saveNewCharacter,
+  selectCharacterAsCurrent,
   updateAttributes,
   updateCharacter,
   updateName,

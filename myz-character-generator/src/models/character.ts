@@ -6,6 +6,7 @@ import { BasicSkill } from './skill';
 import { CharacterTalent } from './talent';
 
 export type CharacterSheet<T extends Role = Role> = {
+  id: string | undefined;
   description: {
     name: string;
   };
@@ -15,6 +16,10 @@ export type CharacterSheet<T extends Role = Role> = {
   skills: Record<CharacterSkill<T>, boolean>;
   talents: Record<CharacterTalent<T>, boolean>;
   gear: any;
+};
+
+export type SavedCharacterSheet<T extends Role = Role> = CharacterSheet<T> & {
+  id: string;
 };
 
 export type CharacterSkill<T extends Role> = BasicSkill | typeof SkillByRole[T];
