@@ -1,22 +1,22 @@
-import { PayloadAction } from '@reduxjs/toolkit';
+import { Draft, PayloadAction } from '@reduxjs/toolkit';
 import { CharacterTalent, Role, Talent } from '../../models';
 import { RootState } from '../state';
 
 export const talentReducers = {
   addTalent: <T extends Role>(
-    state: RootState,
+    state: Draft<RootState>,
     action: PayloadAction<{ talent: CharacterTalent<T> }>
   ) => {
-    state.data.current.talents[action.payload.talent] = true;
+    state.data.current.data.talents[action.payload.talent] = true;
   },
   removeTalent: (
-    state: RootState,
+    state: Draft<RootState>,
     action: PayloadAction<{ talent: Talent }>
   ) => {
-    state.data.current.talents[action.payload.talent] = false;
+    state.data.current.data.talents[action.payload.talent] = false;
   },
   updateTalent: (
-    state: RootState,
+    state: Draft<RootState>,
     action: PayloadAction<{ talent: Talent }>
   ) => {
     state.ui.selectedTalent = action.payload.talent;

@@ -11,6 +11,16 @@ export type GenerateOptions = {
   isNameTouched: boolean;
 };
 
+export type FetchedData<T> = {
+  fetching: boolean;
+  date: number;
+  data: T;
+};
+
+export type InitialFetch<T> = FetchedData<T> & {
+  fetchedOnce: boolean;
+};
+
 export type RootState = {
   ui: {
     selectedRole: ROLE_OPTION_VALUE;
@@ -20,13 +30,13 @@ export type RootState = {
     generateOptions: GenerateOptions;
   };
   data: {
-    current: CharacterSheet;
+    current: FetchedData<CharacterSheet>;
     models: {
       roles: ROLE_OPTION_VALUE[];
       mutations: Mutation[];
       skills: Skill[];
       talents: Talent[];
     };
-    characters: SavedCharacterSheet[];
+    characters: InitialFetch<SavedCharacterSheet[]>;
   };
 };

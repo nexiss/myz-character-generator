@@ -32,7 +32,7 @@ export const AddSkillComponent = (props: AddSkillProps) => {
           }}
         >
           {skills.map((skill, i) => (
-            <option key={i} value={skill} disabled={current.skills[skill]}>
+            <option key={i} value={skill} disabled={current.data.skills[skill]}>
               <SkillTrans skill={skill}></SkillTrans>
             </option>
           ))}
@@ -44,7 +44,7 @@ export const AddSkillComponent = (props: AddSkillProps) => {
             variant="outline-secondary"
             size="sm"
             // TODO: add selected skill instead
-            disabled={current.skills[selectedSkill]}
+            disabled={current.data.skills[selectedSkill]}
             onClick={() => onAddSkill(selectedSkill)}
           >
             <Icon.Plus />

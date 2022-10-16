@@ -25,15 +25,23 @@ exports.getCharacters = async (req, res) => {
 
 exports.updateCharacter = async (req, res) => {
   try {
-    const { name, role } = req.body;
+    const { description, role, attributes, skills, talents, mutations } =
+      req.body;
+
     let character = await Character.findById(req.params.id);
 
     if (!character) {
       res.status(404).json({ msg: 'Character not found' });
     }
 
-    character.name = name;
+    character.description = description;
     character.role = role;
+    character.attributes = attributes;
+    character.skills = skills;
+    character.talents = talents;
+    character.mutations = mutations;
+
+    // TODO: update the rest of properties
 
     character = await Character.findOneAndUpdate(
       { _id: req.params.id },
@@ -74,6 +82,20 @@ exports.deleteCharacter = async (req, res) => {
     await Character.findOneAndRemove({ _id: req.params.id });
 
     res.json({ msg: 'Character deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('error happend');
+  }
+};
+
+exports.deleteCharacters = async (req, res) => {
+  try {
+    const characters = await Character.find();
+    for (c of characters) {
+      await Character.findOneAndRemove({ _id: c._id });
+    }
+
+    res.json({ msg: 'Characters deleted successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).send('error happend');

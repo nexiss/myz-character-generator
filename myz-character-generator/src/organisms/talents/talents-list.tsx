@@ -13,7 +13,7 @@ export const TalentsList = () => {
 
   return (
     <ul>
-      {Object.entries(current.talents)
+      {Object.entries(current.data.talents)
         .filter(([_, value]) => value)
         .map(([key], i: number) => {
           const talent = key as Talent;

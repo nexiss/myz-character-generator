@@ -32,7 +32,11 @@ export const AddTalentComponent = (props: AddTalentProps) => {
           }}
         >
           {talents.map((talent, i) => (
-            <option key={i} value={talent} disabled={current.talents[talent]}>
+            <option
+              key={i}
+              value={talent}
+              disabled={current.data.talents[talent]}
+            >
               <TalentTrans talent={talent}></TalentTrans>
             </option>
           ))}
@@ -44,7 +48,7 @@ export const AddTalentComponent = (props: AddTalentProps) => {
             variant="outline-secondary"
             size="sm"
             // TODO: add selected talent instead
-            disabled={current.talents[selectedTalent]}
+            disabled={current.data.talents[selectedTalent]}
             onClick={() => onAddTalent(selectedTalent)}
           >
             <Icon.Plus />

@@ -1,89 +1,8 @@
 const mongoose = require('mongoose');
 
-const Weapon = mongoose.Schema({
+const Description = mongoose.Schema({
   name: {
     type: String,
-    required: true,
-  },
-  bonificaiton: {
-    type: Number,
-    required: true,
-  },
-  damage: {
-    type: Number,
-    required: true,
-  },
-  range: {
-    type: Number,
-    min: 0,
-    max: 4,
-    required: true,
-  },
-  comment: {
-    type: String,
-  },
-});
-
-const Action = mongoose.Schema({
-  description: {
-    type: String,
-    required: true,
-  },
-  cost: {
-    type: Number,
-    required: true,
-  },
-});
-
-const Mutation = mongoose.Schema({
-  description: {
-    type: String,
-    required: true,
-  },
-  actions: [Action],
-});
-
-const Talent = mongoose.Schema({
-  description: {
-    type: String,
-    required: true,
-  },
-});
-
-const Skill = mongoose.Schema({
-  description: {
-    type: String,
-    required: true,
-  },
-  failure: {
-    type: String,
-    required: true,
-  },
-  success: {
-    type: String,
-    required: true,
-  },
-  stunt: {
-    type: String,
-    required: true,
-  },
-});
-
-const Conditions = mongoose.Schema({
-  starving: {
-    type: Boolean,
-    required: true,
-  },
-  dehydrated: {
-    type: Boolean,
-    required: true,
-  },
-  sleepless: {
-    type: Boolean,
-    required: true,
-  },
-  hypothermic: {
-    type: Boolean,
     required: true,
   },
 });
@@ -112,20 +31,27 @@ const Attributes = mongoose.Schema({
 });
 
 const CharacterSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+  description: Description,
   role: {
     type: String,
     required: true,
   },
   attributes: Attributes,
-  skills: [Skill],
-  talents: [Talent],
-  mutations: [Mutation],
-  weapons: [Weapon],
-  conditions: Conditions,
+  skills: {
+    type: Map,
+    of: Boolean,
+    default: {},
+  },
+  talents: {
+    type: Map,
+    of: Boolean,
+    default: {},
+  },
+  mutations: {
+    type: Map,
+    of: Boolean,
+    default: {},
+  },
   creationDate: {
     type: Date,
     default: Date.now(),

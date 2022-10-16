@@ -2,12 +2,16 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   Attributes,
   BasicSkill,
+  CharacterSheet,
   GeneralTalent,
   Mutation,
   Role,
 } from '../models';
 import { RANDOM, selectableRoles } from './data';
-import { characterReducers } from './reducers/character-reducer';
+import {
+  characterReducers,
+  extraCharacterReducers,
+} from './reducers/character-reducer';
 import { descriptionReducers } from './reducers/description-reducers';
 import { mutationReducers } from './reducers/mutation-reducer';
 import { skillReducers } from './reducers/skill-reducer';
@@ -21,6 +25,24 @@ import {
 import { buildInitialSkills, getSkills } from './utils/store.utils.skills';
 import { buildInitialTalents, getTalents } from './utils/store.utils.talents';
 
+const initialCurrentData: CharacterSheet = {
+  _id: undefined,
+  description: {
+    name: '',
+  },
+  role: Role.ENFORCER,
+  attributes: {
+    strength: 0,
+    agility: 0,
+    wits: 0,
+    empathy: 0,
+  },
+  mutations: buildInitialMutations(),
+  skills: buildInitialSkills(),
+  talents: buildInitialTalents(),
+  gear: {},
+};
+
 const initialState: RootState = {
   ui: {
     selectedRole: RANDOM,
@@ -33,23 +55,16 @@ const initialState: RootState = {
   },
   data: {
     current: {
-      id: undefined,
-      description: {
-        name: '',
-      },
-      role: Role.ENFORCER,
-      attributes: {
-        strength: 0,
-        agility: 0,
-        wits: 0,
-        empathy: 0,
-      },
-      mutations: buildInitialMutations(),
-      skills: buildInitialSkills(),
-      talents: buildInitialTalents(),
-      gear: {},
+      fetching: false,
+      date: Date.now(),
+      data: initialCurrentData,
     },
-    characters: [],
+    characters: {
+      fetchedOnce: false,
+      fetching: false,
+      date: Date.now(),
+      data: [],
+    },
     models: {
       roles: selectableRoles,
       mutations: getMutations(),
@@ -69,8 +84,8 @@ export const rootSlice = createSlice({
     ...characterReducers,
     ...talentReducers,
     generate: (state) => {
-      state.data.current = generateRandomCurrent(
-        state.data.current,
+      state.data.current.data = generateRandomCurrent(
+        state.data.current.data,
         state.ui.selectedRole,
         state.ui.generateOptions
       );
@@ -79,8 +94,11 @@ export const rootSlice = createSlice({
       state,
       action: PayloadAction<{ attributes: Attributes }>
     ) => {
-      state.data.current.attributes = action.payload.attributes;
+      state.data.current.data.attributes = action.payload.attributes;
     },
+  },
+  extraReducers: {
+    ...extraCharacterReducers,
   },
 });
 
@@ -94,7 +112,6 @@ export const {
   removeTalent,
   selectCharacterAsCurrent,
   updateAttributes,
-  updateCharacter,
   updateName,
   updateSkill,
   updateMutation,

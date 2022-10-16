@@ -17,23 +17,26 @@ export const CharactersList = () => {
         <Trans i18nKey="others.characters">Characters</Trans>
       </h5>
       <Accordion defaultActiveKey="0">
-        {characters.map((characterSheet, i: number) => {
+        {characters.data.map((characterSheet) => {
           return (
-            <Accordion.Item eventKey={characterSheet.id}>
+            <Accordion.Item
+              eventKey={characterSheet._id}
+              key={characterSheet._id}
+            >
               <Accordion.Header>
                 {characterSheet.description.name}
               </Accordion.Header>
               <Accordion.Body
                 className={`${
-                  characterSheet.id === current.id ? 'selected' : ''
+                  characterSheet._id === current.data._id ? 'selected' : ''
                 }`}
               >
-                <div>id: {characterSheet.id}</div>
+                <div>{JSON.stringify(characterSheet)}</div>
                 <Button
                   variant="outline-secondary"
                   onClick={() =>
                     dispatch(
-                      selectCharacterAsCurrent({ id: characterSheet.id })
+                      selectCharacterAsCurrent({ id: characterSheet._id })
                     )
                   }
                 >

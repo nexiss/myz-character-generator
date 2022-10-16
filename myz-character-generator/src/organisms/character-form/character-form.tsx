@@ -3,9 +3,10 @@ import { Trans } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import RoleTrans from '../../atoms/trans/role-trans';
 import ActionsBar from '../../molecules/actions-bar/actions-bar';
+import { useActions } from '../../store/actions/actions';
 import { ROLE_OPTION_VALUE } from '../../store/data';
 import StoreSelectors from '../../store/selectors';
-import { generate, updateCharacter, updateRole } from '../../store/store';
+import { generate, updateRole } from '../../store/store';
 import AttributesComponent from '../attributes/attributes';
 import DescriptionComponent from '../description/description';
 import MutationsComponent from '../mutations/mutations.component';
@@ -18,6 +19,7 @@ export const CharacterForm = () => {
   const { roles, selectedRole } = StoreSelectors();
 
   const dispatch = useDispatch();
+  const actions = useActions();
 
   const onRoleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
     dispatch(
@@ -52,7 +54,7 @@ export const CharacterForm = () => {
         </Col>
         <Col md={4}>
           <ActionsBar
-            onSave={() => dispatch(updateCharacter())}
+            onSave={() => actions.acceptCurrent()}
             onGenerate={() => dispatch(generate())}
           ></ActionsBar>
         </Col>

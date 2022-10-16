@@ -35,7 +35,7 @@ export const AddMutationComponent = (props: AddMutationProps) => {
             <option
               key={i}
               value={mutation}
-              disabled={current.mutations[mutation]}
+              disabled={current.data.mutations[mutation]}
             >
               <MutationTrans mutation={mutation}></MutationTrans>
             </option>
@@ -48,7 +48,7 @@ export const AddMutationComponent = (props: AddMutationProps) => {
             variant="outline-secondary"
             size="sm"
             // TODO: add selected mutation instead
-            disabled={current.mutations[selectedMutation]}
+            disabled={current.data.mutations[selectedMutation]}
             onClick={() => onAddMutation(selectedMutation)}
           >
             <Icon.Plus />

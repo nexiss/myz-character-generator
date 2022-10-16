@@ -7,8 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './store/store';
 import './i18n';
+import thunk from 'redux-thunk';
 
 const store = configureStore({
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
   reducer: {
     root: rootReducer,
   },

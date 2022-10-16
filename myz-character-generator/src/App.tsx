@@ -1,11 +1,18 @@
 import { Row, ThemeProvider } from 'react-bootstrap';
 import { Trans } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import './App.css';
+import { fetchCharacters } from './store/actions/characters.actions';
 import StoreSelectors from './store/selectors';
 import CharacterGenerator from './templates/character-generator/character-generator';
 
 function App() {
-  const { root } = StoreSelectors();
+  const { root, characters } = StoreSelectors();
+
+  const dispatch = useDispatch<any>();
+  if (characters.fetchedOnce === false && characters.fetching === false) {
+    dispatch(fetchCharacters());
+  }
 
   return (
     <ThemeProvider

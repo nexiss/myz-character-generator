@@ -13,7 +13,7 @@ export const MutationsList = () => {
 
   return (
     <ul>
-      {Object.entries(current.mutations)
+      {Object.entries(current.data.mutations)
         .filter(([_, value]) => value)
         .map(([key], i: number) => {
           const mutation = key as Mutation;

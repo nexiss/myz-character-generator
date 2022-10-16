@@ -9,7 +9,7 @@ export const AttributesComponent = () => {
     return dispatch(
       updateAttributes({
         attributes: {
-          ...current.attributes,
+          ...current.data.attributes,
           [key]: Number(value),
         },
       })
@@ -23,22 +23,22 @@ export const AttributesComponent = () => {
   return (
     <div>
       <AttributeComponent
-        value={current.attributes.strength}
+        value={current.data.attributes.strength}
         attribute={Attribute.STRENGTH}
         onUpdate={updateAttribute}
       ></AttributeComponent>
       <AttributeComponent
-        value={current.attributes.agility}
+        value={current.data.attributes.agility}
         attribute={Attribute.AGILITY}
         onUpdate={updateAttribute}
       ></AttributeComponent>
       <AttributeComponent
-        value={current.attributes.wits}
+        value={current.data.attributes.wits}
         attribute={Attribute.WITS}
         onUpdate={updateAttribute}
       ></AttributeComponent>
       <AttributeComponent
-        value={current.attributes.empathy}
+        value={current.data.attributes.empathy}
         attribute={Attribute.EMPATHY}
         onUpdate={updateAttribute}
       ></AttributeComponent>

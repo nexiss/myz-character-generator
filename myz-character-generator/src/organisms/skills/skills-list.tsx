@@ -13,7 +13,7 @@ export const SkillsList = () => {
 
   return (
     <ul>
-      {Object.entries(current.skills)
+      {Object.entries(current.data.skills)
         .filter(([_, value]) => value)
         .map(([key], i: number) => {
           const skill = key as Skill;

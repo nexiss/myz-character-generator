@@ -11,10 +11,10 @@ import { generateSkillsByRole } from './store.utils.skills';
 import { generateTalentsByRole } from './store.utils.talents';
 
 export const buildBaseInfo = <T extends Role>(
-  options: { name: string; id: string | undefined; role?: T },
+  options: { name: string; role?: T },
   generateOptions: GenerateOptions
-): PCharacterSheet<T, 'description' | 'role' | 'id'> => ({
-  id: options.id,
+): PCharacterSheet<T, 'description' | 'role' | '_id'> => ({
+  _id: undefined,
   role: options.role ?? (getRandomRole() as T),
   description: {
     name:

@@ -23,7 +23,7 @@ export const DescriptionComponent = () => {
             plaintext
             min={0}
             max={4}
-            value={current.description.name}
+            value={current.data.description.name}
             onChange={(event) =>
               dispatch(
                 updateName({ name: event.target.value, isNameTouched: true })
@@ -41,7 +41,7 @@ export const DescriptionComponent = () => {
             plaintext
             // TODO: remove this readonly when user can change role manually
             readOnly
-            value={getRoleDescriptor(current.role)}
+            value={getRoleDescriptor(current.data.role)}
           />
         </Col>
       </Form.Group>
