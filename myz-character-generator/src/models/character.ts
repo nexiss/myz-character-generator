@@ -22,7 +22,9 @@ export type SavedCharacterSheet<T extends Role = Role> = CharacterSheet<T> & {
   _id: string;
 };
 
-export type CharacterSkill<T extends Role> = BasicSkill | typeof SkillByRole[T];
+export type CharacterSkill<T extends Role> =
+  | BasicSkill
+  | (typeof SkillByRole)[T];
 
 export type PCharacterSheet<
   T extends Role,

@@ -9,6 +9,7 @@ import {
   addSkills,
   addTalents,
   getRandomInt,
+  getRandomRole,
 } from './store.utils.internal';
 
 export const generateRandomCurrent = (
@@ -16,7 +17,9 @@ export const generateRandomCurrent = (
   roleOption: ROLE_OPTION_VALUE,
   generateOptions: GenerateOptions
 ): CharacterSheet => {
-  switch (roleOption) {
+  const role = roleOption === RANDOM ? getRandomRole() : roleOption;
+
+  switch (role) {
     case Role.ENFORCER:
     case Role.GEARHEAD:
     case Role.STALKER:
@@ -25,10 +28,10 @@ export const generateRandomCurrent = (
     case Role.CHRONICLER:
     case Role.BOSS:
     case Role.SLAVE:
-      return buildRandom(current, generateOptions, roleOption);
-    case RANDOM:
+      return buildRandom(current, generateOptions, role);
     default:
-      return buildRandom(current, generateOptions);
+      const _exhaustiveCheck: never = role;
+      return _exhaustiveCheck;
   }
 };
 
@@ -90,7 +93,7 @@ const buildRandom = <
 >(
   current: U,
   generateOptions: GenerateOptions,
-  role?: T
+  role: T
 ): CharacterSheet<T> => {
   const cs1 = buildBaseInfo(
     { name: current.description.name, role },
